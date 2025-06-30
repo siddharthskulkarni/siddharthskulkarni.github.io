@@ -10,7 +10,7 @@ export default {
   theme: {
     extend: {
       fontFamily: {
-        'sans': ['Satoshi', 'ui-sans-serif', 'system-ui', 'sans-serif'],
+        'sans': ['Verdana', 'ui-sans-serif', 'system-ui', 'sans-serif'],
       },
       colors: {
         'soft-gray': '#f8f9fa',
