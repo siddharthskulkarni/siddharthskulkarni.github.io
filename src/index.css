@@ -8,38 +8,38 @@
   }
   
   body {
-    @apply bg-white text-gray-900 dark:bg-gray-900 dark:text-gray-100;
+    @apply bg-white text-gray-900;
     transition: background-color 0.3s ease, color 0.3s ease;
   }
 }
 
 @layer components {
   .prose-custom {
-    @apply prose prose-gray max-w-none dark:prose-invert;
+    @apply prose prose-gray max-w-none;
   }
   
   .prose-custom h1 {
-    @apply text-3xl font-bold mb-6 mt-8 first:mt-0 text-gray-900 dark:text-white;
+    @apply text-3xl font-bold mb-6 mt-8 first:mt-0 text-gray-900;
   }
   
   .prose-custom h2 {
-    @apply text-2xl font-semibold mb-4 mt-8 text-gray-900 dark:text-white;
+    @apply text-2xl font-semibold mb-4 mt-8 text-gray-900;
   }
   
   .prose-custom h3 {
-    @apply text-xl font-semibold mb-3 mt-6 text-gray-900 dark:text-white;
+    @apply text-xl font-semibold mb-3 mt-6 text-gray-900;
   }
   
   .prose-custom p {
-    @apply mb-4 leading-relaxed text-gray-700 dark:text-gray-300;
+    @apply mb-4 leading-relaxed text-gray-700;
   }
   
   .prose-custom code {
-    @apply bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm text-gray-800 dark:text-gray-200;
+    @apply bg-gray-100 px-1 py-0.5 rounded text-sm text-gray-800;
   }
   
   .prose-custom pre {
-    @apply bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto;
+    @apply bg-gray-100 p-4 rounded-lg overflow-x-auto;
   }
   
   .prose-custom pre code {
@@ -47,7 +47,7 @@
   }
   
   .prose-custom blockquote {
-    @apply border-l-4 border-gray-300 dark:border-gray-600 pl-4 italic bg-gray-50 dark:bg-gray-800 py-2 rounded-r;
+    @apply border-l-4 border-gray-300 pl-4 italic bg-gray-50 py-2 rounded-r;
   }
   
   .prose-custom ul {
@@ -59,15 +59,15 @@
   }
   
   .prose-custom li {
-    @apply leading-relaxed text-gray-700 dark:text-gray-300;
+    @apply leading-relaxed text-gray-700;
   }
   
   .prose-custom a {
-    @apply text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 ;
+    @apply text-gray-900 underline hover:text-gray-700 transition-colors;
   }
   
   .prose-custom strong {
-    @apply font-semibold text-gray-900 dark:text-white;
+    @apply font-semibold text-gray-900;
   }
   
   .prose-custom em {

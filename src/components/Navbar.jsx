@@ -15,7 +15,7 @@ const Navbar = () => {
   const isActive = (path) => location.pathname === path;
 
   return (
-    <nav className="bg-white dark:bg-gray-900 top-0 z-50">
+    <nav className="bg-white top-0 z-50">
       <div className="max-w-4xl mx-auto px-6">
         <div className="my-3 flex justify-between items-center h-16">
           {/* Logo/Name */}

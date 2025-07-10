@@ -26,7 +26,7 @@ const Home = () => {
     <div className="max-w-3xl mx-auto space-y-16">
       <section className="space-y-8">
         <div className="flex items-center justify-between">
-          <h2 className="text-xl font-normal font-[verdana] text-blue-900 dark:text-white">
+          <h2 className="text-xl font-normal font-[verdana] text-blue-900">
             New:
           </h2>
         </div>
@@ -41,7 +41,7 @@ const Home = () => {
                   to={`/essays/${essay.id}`}
                   className="block hover:opacity-80 transition-opacity"
                 >
-                  <h3 className="underline font-normal text-gray-900 dark:text-white mb-3 leading-tight group-hover:text-gray-700 dark:group-hover:text-gray-300 ">
+                  <h3 className="underline font-normal text-gray-900 mb-3 leading-tight group-hover:text-gray-700">
                     {essay.title}
                   </h3>
                 </Link>

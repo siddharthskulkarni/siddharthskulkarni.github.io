@@ -49,7 +49,7 @@ const Essays = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="text-gray-600 dark:text-gray-300">Loading...</div>
+        <div className="text-gray-600">Loading...</div>
       </div>
     );
   }
@@ -100,7 +100,7 @@ const Essays = () => {
                   to={`/essays/${essay.id}`}
                   className="block transition-opacity"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 leading-tight group-hover:text-gray-700 dark:group-hover:text-gray-300 ">
+                  <h3 className="text-lg font-semibold text-gray-900 mb-2 leading-tight group-hover:text-gray-700">
                     {essay.title}
                   </h3>
                   

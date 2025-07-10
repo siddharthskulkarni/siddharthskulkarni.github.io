@@ -29,7 +29,7 @@ const EssayViewer = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="text-gray-600 dark:text-gray-300">Loading...</div>
+        <div className="text-gray-600">Loading...</div>
       </div>
     );
   }
@@ -50,7 +50,7 @@ const EssayViewer = () => {
         <h1 className="text-2xl font-normal text-blue-900 leading-tight">
           {essay.title}
         </h1>
-        <div className="flex mt-2 spcenterace-x-4 text-sm text-gray-500 dark:text-gray-400">
+        <div className="flex mt-2 spcenterace-x-4 text-sm text-gray-500">
           <span className="mr-2">{new Date(essay.date).toLocaleString('en-US', {month: "short"}) + ' ' + new Date(essay.date).getFullYear()}</span>
           <span>({essay.tags.join(", ")})</span>
         </div>
@@ -65,13 +65,13 @@ const EssayViewer = () => {
             // Custom styling for code blocks
             code({ inline, className, children, ...props }) {
               return !inline ? (
-                <pre className="bg-gray-100 dark:bg-gray-800 p-4 rounded-lg overflow-x-auto my-6">
+                <pre className="bg-gray-100 p-4 rounded-lg overflow-x-auto my-6">
                   <code className={className} {...props}>
                     {children}
                   </code>
                 </pre>
               ) : (
-                <code className="bg-gray-100 dark:bg-gray-800 px-1 py-0.5 rounded text-sm" {...props}>
+                <code className="bg-gray-100 px-1 py-0.5 rounded text-sm" {...props}>
                   {children}
                 </code>
               );
@@ -88,27 +88,27 @@ const EssayViewer = () => {
             ),
             // Custom styling for paragraphs
             p: ({ children }) => (
-              <p className="mb-6 leading-relaxed text-gray-700 dark:text-gray-300">{children}</p>
+              <p className="mb-6 leading-relaxed text-gray-700">{children}</p>
             ),
             // Custom styling for blockquotes
             blockquote: ({ children }) => (
-              <blockquote className="border-l-4 border-gray-300 dark:border-gray-600 pl-6 italic bg-gray-50 dark:bg-gray-800 py-4 rounded-r my-6 text-gray-700 dark:text-gray-300">
+              <blockquote className="border-l-4 border-gray-300 pl-6 italic bg-gray-50 py-4 rounded-r my-6 text-gray-700">
                 {children}
               </blockquote>
             ),
             // Custom styling for lists
             ul: ({ children }) => (
-              <ul className="list-disc list-inside mb-6 space-y-2 text-gray-700 dark:text-gray-300">{children}</ul>
+              <ul className="list-disc list-inside mb-6 space-y-2 text-gray-700">{children}</ul>
             ),
             ol: ({ children }) => (
-              <ol className="list-decimal list-inside mb-6 space-y-2 text-gray-700 dark:text-gray-300">{children}</ol>
+              <ol className="list-decimal list-inside mb-6 space-y-2 text-gray-700">{children}</ol>
             ),
             li: ({ children }) => (
               <li className="leading-relaxed">{children}</li>
             ),
             // Custom styling for links
             a: ({ href, children }) => (
-              <a href={href} className="text-gray-900 underline hover:text-gray-700 dark:hover:text-gray-300 ">
+              <a href={href} className="text-gray-900 underline hover:text-gray-700">
                 {children}
               </a>
             ),
