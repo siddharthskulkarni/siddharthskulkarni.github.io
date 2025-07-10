@@ -4,7 +4,7 @@
 
 @layer base {
   html {
-    font-family: 'Verdana', sans-serif;
+    font-family: sans-serif;
   }
   
   body {
@@ -63,7 +63,7 @@
   }
   
   .prose-custom a {
-    @apply text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition-colors;
+    @apply text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 ;
   }
   
   .prose-custom strong {

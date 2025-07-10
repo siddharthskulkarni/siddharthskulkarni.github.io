@@ -1,5 +1,4 @@
-import { useParams, Link } from 'react-router-dom';
-import { ArrowLeft } from 'lucide-react';
+import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
@@ -30,7 +29,7 @@ const EssayViewer = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="text-gray-600 dark:text-gray-300">Loading essay...</div>
+        <div className="text-gray-600 dark:text-gray-300">Loading...</div>
       </div>
     );
   }
@@ -38,55 +37,27 @@ const EssayViewer = () => {
   if (!essay) {
     return (
       <div className="max-w-3xl mx-auto text-center py-12">
-        <h1 className="text-2xl font-bold text-gray-900 dark:text-white mb-4">
-          Essay not found
+        <h1 className="text-2xl font-bold text-gray-900 mb-4">
+          Essay not found.
         </h1>
-        <p className="text-gray-600 dark:text-gray-300 mb-6">
-          The essay you're looking for doesn't exist.
-        </p>
-        <Link 
-          to="/essays"
-          className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to essays</span>
-        </Link>
       </div>
     );
   }
 
   return (
-    <article className="max-w-3xl mx-auto">
-      {/* Back Button */}
-      <div className="mb-12">
-        <Link 
-          to="/essays"
-          className="inline-flex items-center space-x-2 text-gray-600 dark:text-gray-300 hover:text-gray-900 dark:hover:text-white transition-colors"
-        >
-          <ArrowLeft className="w-4 h-4" />
-          <span>Back to essays</span>
-        </Link>
-      </div>
-
-      {/* Header */}
-      <header className="mb-16 space-y-6">
-        <div className="flex items-center space-x-4 text-sm text-gray-500 dark:text-gray-400">
-          <span>{new Date(essay.date).getFullYear()}</span>
-          <span>•</span>
-          <span>{essay.type}</span>
-        </div>
-
-        <h1 className="text-3xl md:text-4xl font-bold text-gray-900 dark:text-white leading-tight">
+    <article className="max-w-xl mx-auto font-[verdana]">
+      <header className="mb-4">
+        <h1 className="text-2xl font-normal text-blue-900 leading-tight">
           {essay.title}
         </h1>
-
-        <p className="text-lg text-gray-600 dark:text-gray-400 leading-relaxed">
-          {essay.excerpt}
-        </p>
+        <div className="flex mt-2 spcenterace-x-4 text-sm text-gray-500 dark:text-gray-400">
+          <span className="mr-2">{new Date(essay.date).toLocaleString('en-US', {month: "short"}) + ' ' + new Date(essay.date).getFullYear()}</span>
+          <span>({essay.tags.join(", ")})</span>
+        </div>
       </header>
 
       {/* Content */}
-      <div className="prose prose-custom prose-lg max-w-none">
+      <div className="prose prose-custom prose-lg text-justify">
         <ReactMarkdown
           remarkPlugins={[remarkMath]}
           rehypePlugins={[rehypeKatex]}
@@ -107,13 +78,13 @@ const EssayViewer = () => {
             },
             // Custom styling for headings
             h1: ({ children }) => (
-              <h1 className="text-2xl font-bold mb-6 mt-12 first:mt-0 text-gray-900 dark:text-white">{children}</h1>
+              <h1 className="text-2xl font-bold mb-6 mt-12 first:mt-0 text-gray-900">{children}</h1>
             ),
             h2: ({ children }) => (
-              <h2 className="text-xl font-semibold mb-4 mt-10 text-gray-900 dark:text-white">{children}</h2>
+              <h2 className="text-xl font-semibold mb-4 mt-10 text-gray-900">{children}</h2>
             ),
             h3: ({ children }) => (
-              <h3 className="text-lg font-semibold mb-3 mt-8 text-gray-900 dark:text-white">{children}</h3>
+              <h3 className="text-lg font-semibold mb-3 mt-8 text-gray-900">{children}</h3>
             ),
             // Custom styling for paragraphs
             p: ({ children }) => (
@@ -137,7 +108,7 @@ const EssayViewer = () => {
             ),
             // Custom styling for links
             a: ({ href, children }) => (
-              <a href={href} className="text-gray-900 dark:text-white underline hover:text-gray-700 dark:hover:text-gray-300 transition-colors">
+              <a href={href} className="text-gray-900 underline hover:text-gray-700 dark:hover:text-gray-300 ">
                 {children}
               </a>
             ),
@@ -146,21 +117,6 @@ const EssayViewer = () => {
           {essay.content}
         </ReactMarkdown>
       </div>
-
-      {/* Footer */}
-      <footer className="mt-16 pt-8 border-t border-gray-200 dark:border-gray-700">
-        <div className="flex items-center justify-between text-sm text-gray-500 dark:text-gray-400">
-          <div>
-            Written by Siddharth Kulkarni
-          </div>
-          <Link 
-            to="/essays"
-            className="hover:text-gray-700 dark:hover:text-gray-300 transition-colors"
-          >
-            View all essays
-          </Link>
-        </div>
-      </footer>
     </article>
   );
 };
