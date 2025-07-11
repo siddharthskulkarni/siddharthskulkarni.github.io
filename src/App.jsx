@@ -3,15 +3,18 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Essays from './pages/Essays.jsx';
 import EssayViewer from './pages/EssayViewer.jsx';
+import Bio from './pages/Bio.jsx'
 import Footer from './components/Footer.jsx';
-import Analytics from './contexts/Analytics.jsx';
+import { AnalyticsProvider } from './components/Analytics';
+import { RouterTracker } from './components/RouterTracker';
 import './App.css';
 
 function App() {
   return (
     <>
-      <Analytics />
       <Router>
+        <AnalyticsProvider>
+        <RouterTracker />
         <div className="min-h-screen bg-white">
           <Navbar />
           <main className="px-6 py-12">
@@ -19,10 +22,12 @@ function App() {
               <Route path="/" element={<Home />} />
               <Route path="/essays" element={<Essays />} />
               <Route path="/essays/:id" element={<EssayViewer />} />
+              <Route path="/bio" element={<Bio />} />
             </Routes>
           </main>
           <Footer />
         </div>
+        </AnalyticsProvider>
       </Router>
     </>
   );
