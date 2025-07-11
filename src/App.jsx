@@ -4,10 +4,13 @@ import Home from './pages/Home';
 import Essays from './pages/Essays.jsx';
 import EssayViewer from './pages/EssayViewer.jsx';
 import Footer from './components/Footer.jsx';
+import Analytics from './contexts/Analytics.jsx';
 import './App.css';
 
 function App() {
   return (
+    <>
+      <Analytics />
       <Router>
         <div className="min-h-screen bg-white">
           <Navbar />
@@ -21,6 +24,7 @@ function App() {
           <Footer />
         </div>
       </Router>
+    </>
   );
 }
 
