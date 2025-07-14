@@ -1,5 +1,5 @@
 ---
-title: "Computing bond yields"
+title: "Computing Bond Yields"
 excerpt: "using numerical methods like Bisection and Newton's Method."
 date: "2025-07-09"
 tags: ["bonds", "finance", "math"]
@@ -46,7 +46,7 @@ Two such methods are the _Bisection Method_ and the _Newton's Method_.
 But before diving into them, note that solving for $r$ in equation (1) is the same as solving for $r$ in
 $$
 \begin{align*}
-f(r) = \sum_{t=1}^{T} \frac{C}{(1+r)^t} + \frac{F}{(1+r)^T} - P = 0. \tag*{(3)}  
+f(r) &= \sum_{t=1}^{T} \frac{C}{(1+r)^t} + \frac{F}{(1+r)^T} - P \\ &= 0. \tag*{(3)}  
 \end{align*}
 $$
 Also, this $f(r)$ is decreasing in $r$. It looks like:
