@@ -20,7 +20,8 @@ function App() {
           <main className="px-6 py-12">
             <Routes>
               <Route path="/" element={<Home />} />
-              <Route path="/essays" element={<Essays />} />
+              <Route path="/math/essays" element={<Essays />} />
+              <Route path="/misc/essays" element={<Essays />} />
               <Route path="/essays/:id" element={<EssayViewer />} />
               <Route path="/bio" element={<Bio />} />
             </Routes>

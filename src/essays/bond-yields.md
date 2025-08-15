@@ -2,6 +2,7 @@
 title: "Computing Bond Yields"
 excerpt: "using numerical methods like Bisection and Newton's Method."
 date: "2025-07-09"
+type: "math"
 tags: ["bonds", "finance", "math"]
 ---
 

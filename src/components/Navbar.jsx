@@ -8,7 +8,8 @@ const Navbar = () => {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/essays', label: 'Essays' },
+    { path: '/math/essays', label: 'Math' },
+    { path: '/misc/essays', label: 'Misc' },
     {path: 'bio', label: 'Bio'},
   ];
 
@@ -19,7 +20,7 @@ const Navbar = () => {
       <div className="max-w-4xl mx-auto px-6">
         <div className="my-3 flex justify-between items-center h-16">
           {/* Logo/Name */}
-          <Link to="/" className="text-opacity-15 text-4xl font-[verdana] text-blue-900 ">
+          <Link to="/" className="text-opacity-10 text-4xl font-[verdana] text-blue-900 ">
             SIDDHARTH KULKARNI
           </Link>
 

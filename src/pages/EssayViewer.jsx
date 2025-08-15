@@ -2,6 +2,7 @@ import { useParams } from 'react-router-dom';
 import ReactMarkdown from 'react-markdown';
 import remarkMath from 'remark-math';
 import rehypeKatex from 'rehype-katex';
+import rehypeRaw from 'rehype-raw';
 import 'katex/dist/katex.min.css';
 import { useState, useEffect } from 'react';
 import { loadEssayById } from '../utils/essayLoader';
@@ -37,7 +38,7 @@ const EssayViewer = () => {
   if (!essay) {
     return (
       <div className="max-w-3xl mx-auto text-center py-12">
-        <h1 className="text-2xl font-bold text-gray-900 mb-4">
+        <h1 className="text-xl font-normal text-blue-900 leading-tight">
           Essay not found.
         </h1>
       </div>
@@ -60,7 +61,7 @@ const EssayViewer = () => {
       <div className="prose prose-custom prose-lg text-justify">
         <ReactMarkdown
           remarkPlugins={[remarkMath]}
-          rehypePlugins={[rehypeKatex]}
+          rehypePlugins={[rehypeKatex, rehypeRaw]}
           components={{
             // Custom styling for code blocks
             code({ inline, className, children, ...props }) {
@@ -106,12 +107,28 @@ const EssayViewer = () => {
             li: ({ children }) => (
               <li className="leading-relaxed">{children}</li>
             ),
-            // Custom styling for links
-            a: ({ href, children }) => (
-              <a href={href} className="text-gray-900 underline hover:text-gray-700">
-                {children}
-              </a>
-            ),
+            a: ({href, children}) => (
+            <a 
+              href={href} 
+              className="text-gray-900 underline hover:text-gray-700"
+              onClick={(e) => {
+                // Only handle internal anchor links
+                if (href?.startsWith('#')) {
+                  e.preventDefault();
+                  const id = href.substring(1);
+                  const element = document.getElementById(id);
+                  if (element) {
+                    element.scrollIntoView({ 
+                      behavior: 'instant',
+                      block: 'start'
+                    });
+                  }
+                }
+              }}
+            >
+              {children}
+            </a>
+          ),
           }}
         >
           {essay.content}
