@@ -97,7 +97,7 @@ $$
 $$
 And we get optimal betas.
 
-So far, mathematically speaking, we have found the best approximation to a system of equations which has more equations than unknown variables; i.e. an overdetermined system. In practical applications, this is not enough. When we're guessing something, we like to qualify how good our guess is; we like to assign it some probability.
+So far, mathematically speaking, we have found the best approximation to a system of equations which has more equations than unknown variables; i.e. an overdetermined system. In practical applications, this is not enough. When we're guessing something, we like to qualify how good our guess is; we like to assign it some probability. [[3](#note-3)]
 
 To do that, we consider a more statistical approach. Of course, for the gain of assigning probabilities, we bear the cost of more assumptions.
 
@@ -168,6 +168,11 @@ Broadly, Regression has two types: Parametric (assumes a functional form) and No
 
 <span class="invisible absolute" id="note-2"></span>
 [2] $X^tX$ are special kinds of matrices called [symmetric positive definite (SPD)](https://en.wikipedia.org/wiki/Definite_matrix#Definitions). Inverting SPD matrices is more generally connected with optimization problems.
+
+<span class="invisible absolute" id="note-3"></span>
+[3] This is what's called OLS (Ordinary Least Squares). It's a mathematical method to find the approximation of a point in a subspace; it works so long as the explanatory variables $\mathbf{x}$ are linearly independent. Otherwise, there can be infinitely many best approximations.
+
+The additional assumptions in _OLS regression_ guarantee that the estimators $\hat{\beta}$ are the [_Best Linear Unbiased Estimators (BLUE)_](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem). By further assuming a conditional Normal model, we can make confidence intervals.
 
 &nbsp;
 
