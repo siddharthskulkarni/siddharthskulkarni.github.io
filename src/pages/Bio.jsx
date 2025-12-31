@@ -18,7 +18,8 @@ const Bio = () => {
           Bio
         </h2>
         <p className="text-gray-700 text-justify">
-          I’m Siddharth Kulkarni — mathematician and writer. I'm an Applied Mathematics graduate student at the University of Massachusetts. I’m currently exploring Machine Learning and some areas of Pure Mathematics. I like reading, writing, and playing chess.
+          Hi, I’m Siddharth Kulkarni! I’m currently exploring 
+          Machine Learning and Deep Learning. I like Mathematics, writing, and playing chess.
         </p>
       </div>
     </div>
