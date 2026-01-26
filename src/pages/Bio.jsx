@@ -18,8 +18,14 @@ const Bio = () => {
           Bio
         </h2>
         <p className="text-gray-700 text-justify">
-          Hi, I’m Siddharth Kulkarni! I’m currently exploring 
-          Machine Learning and Deep Learning. I like Mathematics, writing, and playing chess.
+          Hi, I’m Siddharth Kulkarni. I have a B.Tech
+          in Computer Engineering from NIT Surat and
+          an MS in Applied Mathematics from
+          UMass Amherst. 
+        </p> <br/>
+        <p className="text-gray-700 text-justify">
+          I write about mathematics, machine learning,
+          finance, and other life stuff.
         </p>
       </div>
     </div>
