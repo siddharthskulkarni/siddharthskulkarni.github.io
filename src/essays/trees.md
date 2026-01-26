@@ -6,7 +6,7 @@ type: "math"
 tags: ["math", "ML"]
 ---
 
-#### Basic Idea
+##### Basic Idea
 Let's consider the usual setup of a 
 [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) problem with $n$
 data points and $p$ predictors. 
@@ -48,7 +48,7 @@ so we consider [regression](https://en.wikipedia.org/wiki/Regression_analysis)  
 <!-- ($Y_i \in \mathbb{R}$)
 ($Y_i \in \{1, \ldots, k\}$) -->
 
-#### Regression
+##### Regression
 We want to answer: how to make the regions and how to predict values within them. In supervised learning this reduces to choosing a
 cost function and finding the parameters
 (the regions and guess values in this case)
@@ -89,7 +89,7 @@ that gives the lowest MSE is also computationally infeasible. So we take a greed
 for all possible predictors in a region, and
 choose the predictor and split that gives the largest reduction in MSE. The two new regions are added to the queue of all regions and the process can continue (in principle) till there's only one data point left in each region.
 
-#### Pros and cons
+###### Pros and cons
 Although this algorithm is easy to implement and gives interpretable decision trees, they have a high variance and generalize poorly. I.e. the fully-grown trees overfit the training data and have low predictive power.
 
 At the level of individual trees this is tackled by specifying growth constraints, or by cost complexity pruning. But there are ways to combine multiple weak trees to get a strong estimator that are much more effective — namely bagging and boosting.
@@ -97,7 +97,7 @@ At the level of individual trees this is tackled by specifying growth constraint
 
 &nbsp;
 
-### References
+###### References
 [1] Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. _The Elements of Statistical Learning: Data Mining, Inference, and Prediction_. 2nd ed. Springer Series in Statistics. New York: Springer, 2009. [https://doi.org/10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
 
 [2] James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. _An Introduction to Statistical Learning: with Applications in Python_. 2nd ed. Springer Texts in Statistics. Cham: Springer, 2023. [https://doi.org/10.1007/978-3-031-38747-0](https://doi.org/10.1007/978-3-031-38747-0).
