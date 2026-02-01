@@ -98,235 +98,212 @@ const EssayViewer = () => {
 
   return (
     <div className="relative mt-8">
-      <div className="flex justify-center">
-        <div className="flex">
-          <article className="max-w-xl font-[verdana]">
-            <header className="mb-4">
-              <h1 className="text-2xl font-normal text-blue-900 leading-tight">
-                {essay.title}
-              </h1>
-              <div className="flex mt-2 space-x-4 text-sm text-gray-500">
-                <span className="mr-2">{new Date(essay.date).toLocaleString('en-US', {month: "short"}) + ' ' + new Date(essay.date).getFullYear()}</span>
-                <span>({essay.tags.join(", ")})</span>
-              </div>
-            </header>
+      <div className="flex">
+        <article className="max-w-xl font-[verdana]">
+          <header className="mb-4">
+            <h1 className="text-2xl font-normal text-blue-900 leading-tight">
+              {essay.title}
+            </h1>
+            <div className="flex mt-2 space-x-4 text-sm text-gray-500">
+              <span className="mr-2">{new Date(essay.date).toLocaleString('en-US', {month: "short"}) + ' ' + new Date(essay.date).getFullYear()}</span>
+              <span>({essay.tags.join(", ")})</span>
+            </div>
+          </header>
 
-            <div className="text-justify">
-              <ReactMarkdown
-                remarkPlugins={[remarkMath]}
-                rehypePlugins={[rehypeKatex, rehypeRaw]}
-                components={{
-                  code({ inline, className, children, ...props }) {
-                    const match = /language-(\w+)/.exec(className || '');
-                    const isOutputBlock = className?.includes('output') || 
-                                         String(children).startsWith('// Output:') ||
-                                         String(children).startsWith('# Output:') ||
-                                         String(children).startsWith('/* Output:') ||
-                                         String(children).trim().startsWith('Output:');
-                                
-                    const codeText = String(children).replace(/\n$/, '');
-                         
-                    if (!inline && match && !isOutputBlock) {
-                      return (
-                        <div className="relative my-6 group">
+          <div className="text-justify">
+            <ReactMarkdown
+              remarkPlugins={[remarkMath]}
+              rehypePlugins={[rehypeKatex, rehypeRaw]}
+              components={{
+                code({ inline, className, children, ...props }) {
+                  const match = /language-(\w+)/.exec(className || '');
+                  const isOutputBlock = className?.includes('output') || 
+                                        String(children).startsWith('// Output:') ||
+                                        String(children).startsWith('# Output:') ||
+                                        String(children).startsWith('/* Output:') ||
+                                        String(children).trim().startsWith('Output:');
+                              
+                  const codeText = String(children).replace(/\n$/, '');
+                        
+                  if (!inline && match && !isOutputBlock) {
+                    return (
+                      <div className="relative my-6 group">
+                        <div className="absolute top-3 right-3 z-10">
+                          <CopyButton text={codeText} />
+                        </div>
+                        <SyntaxHighlighter
+                          style={vscDarkPlus}
+                          language={match[1]}
+                          PreTag="div"
+                          showLineNumbers={true}
+                          customStyle={{
+                            width: '100%',
+                            display: 'flex',
+                            margin: 0,
+                            padding: '1.25rem',
+                            fontSize: '0.875rem',
+                            borderRadius: '0.375rem',
+                            backgroundColor: '#1e1e1e',
+                            border: '1px solid #3e3e3e',
+                            flexGrow: 1,
+                            boxSizing: 'border-box'
+                          }}
+                          codeTagProps={{
+                            style: {
+                              fontFamily: "'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace",
+                              fontWeight: 'normal'
+                            }
+                          }}
+                          lineNumberStyle={{
+                            minWidth: '2.5em',
+                            paddingRight: '1em',
+                            color: '#858585',
+                            userSelect: 'none'
+                          }}
+                          {...props}
+                        >
+                          {codeText}
+                        </SyntaxHighlighter>
+                      </div>
+                    );
+                  } 
+                  else if (!inline && isOutputBlock) {
+                    let outputText = codeText
+                      .replace(/^\/\/ Output:\s*\n?/, '')
+                      .replace(/^# Output:\s*\n?/, '')
+                      .replace(/^\/\* Output:\s*\n?/, '')
+                      .replace(/\s*\*\/$/, '')
+                      .replace(/^Output:\s*\n?/, '')
+                      .trim();
+                    
+                    return (
+                      <div className="relative my-6 group">
+                        <div className="absolute top-3 right-3 z-10">
                           <div className="absolute top-3 right-3 z-10">
                             <CopyButton text={codeText} />
                           </div>
-                          <SyntaxHighlighter
-                            style={vscDarkPlus}
-                            language={match[1]}
-                            PreTag="div"
-                            showLineNumbers={true}
-                            customStyle={{
-                              width: '100%',
-                              display: 'flex',
-                              margin: 0,
-                              padding: '1.25rem',
-                              fontSize: '0.875rem',
-                              borderRadius: '0.375rem',
-                              backgroundColor: '#1e1e1e',
-                              border: '1px solid #3e3e3e',
-                              flexGrow: 1,
-                              boxSizing: 'border-box'
-                            }}
-                            codeTagProps={{
-                              style: {
-                                fontFamily: "'Cascadia Code', 'Fira Code', 'Consolas', 'Monaco', monospace",
-                                fontWeight: 'normal'
-                              }
-                            }}
-                            lineNumberStyle={{
-                              minWidth: '2.5em',
-                              paddingRight: '1em',
-                              color: '#858585',
-                              userSelect: 'none'
-                            }}
-                            {...props}
-                          >
-                            {codeText}
-                          </SyntaxHighlighter>
                         </div>
-                      );
-                    } 
-                    else if (!inline && isOutputBlock) {
-                      let outputText = codeText
-                        .replace(/^\/\/ Output:\s*\n?/, '')
-                        .replace(/^# Output:\s*\n?/, '')
-                        .replace(/^\/\* Output:\s*\n?/, '')
-                        .replace(/\s*\*\/$/, '')
-                        .replace(/^Output:\s*\n?/, '')
-                        .trim();
-                      
-                      const outputBlockId = `output-${blockId}`;
-                      
-                      return (
-                        <div className="relative my-6 group">
-                          <div className="absolute top-3 right-3 z-10">
-                            <div className="relative group/copy">
-                              <span className={`
-                                absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-md text-[11px] font-bold tracking-wide shadow-xl transition-all duration-200 pointer-events-none whitespace-nowrap
-                                ${copiedStates[outputBlockId] 
-                                  ? "bg-green-600 text-white opacity-100 translate-y-0 scale-100" 
-                                  : "bg-gray-800 text-gray-200 opacity-0 group-hover/copy:opacity-100 translate-y-2 scale-95 group-hover/copy:translate-y-0 group-hover/copy:scale-100"}
-                              `}>
-                                {copiedStates[outputBlockId] ? "Copied!" : "Copy"}
-                                <span className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 ${copiedStates[outputBlockId] ? 'bg-green-600' : 'bg-gray-800'}`} />
-                              </span>
-                              <button
-                                onClick={() => handleCopy(outputText, outputBlockId)}
-                                className="p-2 bg-white hover:bg-gray-50 rounded transition-all border border-gray-300 opacity-0 group-hover:opacity-100 focus:opacity-100"
-                                title="Copy output"
-                              >
-                                {copiedStates[outputBlockId] ? (
-                                  <Check className="w-3.5 h-3.5 text-green-600" />
-                                ) : (
-                                  <Copy className="w-3.5 h-3.5 text-gray-600" />
-                                )}
-                              </button>
-                            </div>
+                        <div className="bg-[#f5f5f5] rounded-md overflow-hidden border border-gray-300">
+                          <div className="bg-[#e8e8e8] px-4 py-2 text-xs text-gray-600 font-medium border-b border-gray-300">
+                            Output
                           </div>
-                          <div className="bg-[#f5f5f5] rounded-md overflow-hidden border border-gray-300">
-                            <div className="bg-[#e8e8e8] px-4 py-2 text-xs text-gray-600 font-medium border-b border-gray-300">
-                              Output
-                            </div>
-                            <pre className="m-0 p-4 bg-transparent font-mono text-sm overflow-x-auto">
-                              <code className="text-gray-800 whitespace-pre">
-                                {outputText}
-                              </code>
-                            </pre>
-                          </div>
-                        </div>
-                      );
-                    }
-                    else if (!inline) {
-                      return (
-                        <div className="relative my-6 group">
-                          <div className="absolute top-3 right-3 z-10">
-                            <div className="relative group/copy">
-                              <span className={`
-                                absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-md text-[11px] font-bold tracking-wide shadow-xl transition-all duration-200 pointer-events-none whitespace-nowrap
-                                ${copiedStates[blockId] 
-                                  ? "bg-green-600 text-white opacity-100 translate-y-0 scale-100" 
-                                  : "bg-gray-800 text-gray-200 opacity-0 group-hover/copy:opacity-100 translate-y-2 scale-95 group-hover/copy:translate-y-0 group-hover/copy:scale-100"}
-                              `}>
-                                {copiedStates[blockId] ? "Copied!" : "Copy"}
-                                <span className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 ${copiedStates[blockId] ? 'bg-green-600' : 'bg-gray-800'}`} />
-                              </span>
-                              <button
-                                onClick={() => handleCopy(codeText, blockId)}
-                                className="p-2 bg-[#2d2d2d] hover:bg-[#3e3e3e] rounded transition-all border border-gray-700 opacity-0 group-hover:opacity-100 focus:opacity-100"
-                                title="Copy code"
-                              >
-                                {copiedStates[blockId] ? (
-                                  <Check className="w-3.5 h-3.5 text-green-400" />
-                                ) : (
-                                  <Copy className="w-3.5 h-3.5 text-gray-400" />
-                                )}
-                              </button>
-                            </div>
-                          </div>
-                          <pre className="bg-[#1e1e1e] text-gray-100 p-4 rounded-md overflow-x-auto font-mono text-sm border border-[#3e3e3e]">
-                            <code className="text-gray-100" {...props}>
-                              {children}
+                          <pre className="m-0 p-4 bg-transparent font-mono text-sm overflow-x-auto">
+                            <code className="text-gray-800 whitespace-pre">
+                              {outputText}
                             </code>
                           </pre>
                         </div>
-                      );
-                    }
-                    else {
-                      return (
-                        <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800" {...props}>
-                          {children}
-                        </code>
-                      );
-                    }
-                  },
-                  h1: ({ children }) => {
-                    const text = String(children);
-                    const id = generateSlug(text);
-                    return (
-                      <h1 id={id} className="text-2xl font-bold mb-6 mt-12 first:mt-0 text-gray-900 scroll-mt-24">
-                        {children}
-                      </h1>
+                      </div>
                     );
-                  },
-                  h2: ({ children }) => {
-                    const text = String(children);
-                    const id = generateSlug(text);
+                  }
+                  else if (!inline) {
                     return (
-                      <h2 id={id} className="text-xl font-semibold mb-4 mt-10 text-gray-900 scroll-mt-24">
-                        {children}
-                      </h2>
+                      <div className="relative my-6 group">
+                        <div className="absolute top-3 right-3 z-10">
+                          <div className="relative group/copy">
+                            <span className={`
+                              absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-md text-[11px] font-bold tracking-wide shadow-xl transition-all duration-200 pointer-events-none whitespace-nowrap
+                              ${copiedStates[blockId] 
+                                ? "bg-green-600 text-white opacity-100 translate-y-0 scale-100" 
+                                : "bg-gray-800 text-gray-200 opacity-0 group-hover/copy:opacity-100 translate-y-2 scale-95 group-hover/copy:translate-y-0 group-hover/copy:scale-100"}
+                            `}>
+                              {copiedStates[blockId] ? "Copied!" : "Copy"}
+                              <span className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 ${copiedStates[blockId] ? 'bg-green-600' : 'bg-gray-800'}`} />
+                            </span>
+                            <button
+                              onClick={() => handleCopy(codeText, blockId)}
+                              className="p-2 bg-[#2d2d2d] hover:bg-[#3e3e3e] rounded transition-all border border-gray-700 opacity-0 group-hover:opacity-100 focus:opacity-100"
+                              title="Copy code"
+                            >
+                              {copiedStates[blockId] ? (
+                                <Check className="w-3.5 h-3.5 text-green-400" />
+                              ) : (
+                                <Copy className="w-3.5 h-3.5 text-gray-400" />
+                              )}
+                            </button>
+                          </div>
+                        </div>
+                        <pre className="bg-[#1e1e1e] text-gray-100 p-4 rounded-md overflow-x-auto font-mono text-sm border border-[#3e3e3e]">
+                          <code className="text-gray-100" {...props}>
+                            {children}
+                          </code>
+                        </pre>
+                      </div>
                     );
-                  },
-                  h3: ({ children }) => {
-                    const text = String(children);
-                    const id = generateSlug(text);
+                  }
+                  else {
                     return (
-                      <h3 id={id} className="text-lg font-semibold mb-3 mt-8 text-gray-900 scroll-mt-24">
+                      <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800" {...props}>
                         {children}
-                      </h3>
+                      </code>
                     );
-                  },
-                  p: ({ children }) => (
-                    <p className="mb-6 leading-relaxed text-gray-700">{children}</p>
-                  ),
-                  blockquote: ({ children }) => (
-                    <blockquote className="border-l-4 border-gray-300 pl-6 italic bg-gray-50 py-4 rounded-r my-6 text-gray-700">
+                  }
+                },
+                h1: ({ children }) => {
+                  const text = String(children);
+                  const id = generateSlug(text);
+                  return (
+                    <h1 id={id} className="text-2xl font-bold mb-6 mt-12 first:mt-0 text-gray-900 scroll-mt-24">
                       {children}
-                    </blockquote>
-                  ),
-                  ul: ({ children }) => (
-                    <ul className="list-disc list-inside mb-6 space-y-2 text-gray-700">{children}</ul>
-                  ),
-                  ol: ({ children }) => (
-                    <ol className="list-decimal list-inside mb-6 space-y-2 text-gray-700">{children}</ol>
-                  ),
-                  li: ({ children }) => (
-                    <li className="leading-relaxed">{children}</li>
-                  ),
-                  a: ({href, children}) => (
-                    <a 
-                      href={href} 
-                      className="text-gray-900 underline hover:text-gray-700"
-                      onClick={(e) => {
-                        if (href?.startsWith('#')) {
-                          e.preventDefault();
-                          const id = href.substring(1);
-                          scrollToSection(id);
-                        }
-                      }}
-                    >
+                    </h1>
+                  );
+                },
+                h2: ({ children }) => {
+                  const text = String(children);
+                  const id = generateSlug(text);
+                  return (
+                    <h2 id={id} className="text-xl font-semibold mb-4 mt-10 text-gray-900 scroll-mt-24">
                       {children}
-                    </a>
-                  ),
-                }}
-              >
-                {essay.content}
-              </ReactMarkdown>
-            </div>
-          </article>
-        </div>
+                    </h2>
+                  );
+                },
+                h3: ({ children }) => {
+                  const text = String(children);
+                  const id = generateSlug(text);
+                  return (
+                    <h3 id={id} className="text-lg font-semibold mb-3 mt-8 text-gray-900 scroll-mt-24">
+                      {children}
+                    </h3>
+                  );
+                },
+                p: ({ children }) => (
+                  <p className="mb-6 leading-relaxed text-gray-700">{children}</p>
+                ),
+                blockquote: ({ children }) => (
+                  <blockquote className="border-l-4 border-gray-300 pl-6 italic bg-gray-50 py-4 rounded-r my-6 text-gray-700">
+                    {children}
+                  </blockquote>
+                ),
+                ul: ({ children }) => (
+                  <ul className="list-disc list-inside mb-6 space-y-2 text-gray-700">{children}</ul>
+                ),
+                ol: ({ children }) => (
+                  <ol className="list-decimal list-inside mb-6 space-y-2 text-gray-700">{children}</ol>
+                ),
+                li: ({ children }) => (
+                  <li className="leading-relaxed">{children}</li>
+                ),
+                a: ({href, children}) => (
+                  <a 
+                    href={href} 
+                    className="text-gray-900 underline hover:text-gray-700"
+                    onClick={(e) => {
+                      if (href?.startsWith('#')) {
+                        e.preventDefault();
+                        const id = href.substring(1);
+                        scrollToSection(id);
+                      }
+                    }}
+                  >
+                    {children}
+                  </a>
+                ),
+              }}
+            >
+              {essay.content}
+            </ReactMarkdown>
+          </div>
+        </article>
       </div>
     </div>
   );
