@@ -21,7 +21,7 @@ const Navbar = () => {
         <div className="my-3 flex justify-between items-center h-16">
           {/* Logo/Name */}
           <Link to="/" className="text-opacity-10 text-3xl font-[verdana] text-blue-900 font-medium">
-            SIDDHARTH KULKARNI
+            SK
           </Link>
 
           {/* Desktop Navigation */}

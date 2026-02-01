@@ -23,7 +23,8 @@ export const loadEssays = async (type = null) => {
         date: data.date || new Date().toISOString().split('T')[0],
         type: data.type || 'draft',
         tags: data.tags || [],
-        content: markdownContent || ''
+        content: markdownContent || '',
+        outline: data.outline
       };
 
       essays.push(writing);

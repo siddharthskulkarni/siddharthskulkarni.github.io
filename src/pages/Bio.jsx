@@ -6,7 +6,7 @@ const Bio = () => {
   }, []);
 
   return (
-    <div className="max-w-xl mx-auto font-[verdana]">
+    <div className="max-w-xl mt-8 font-[verdana]">
      <div className="max-w-xl mx-auto font-[verdana]">
       <div>
         <img

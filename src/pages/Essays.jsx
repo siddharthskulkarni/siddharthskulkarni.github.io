@@ -57,7 +57,7 @@ const Essays = () => {
   }
 
   return (
-    <div className="max-w-3xl mx-auto font-[verdana] text-normal">
+    <div className="max-w-3xl mt-8 font-[verdana] text-normal">
       <div className="flex items-center justify-between">
           <h2 className="my-3 text-xl font-normal font-[verdana] text-blue-900">
             Essays / Notes

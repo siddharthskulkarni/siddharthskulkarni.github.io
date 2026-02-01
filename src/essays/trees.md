@@ -3,9 +3,11 @@ title: "Introduction to Tree-based methods"
 excerpt: ""
 date: "2026-01-25"
 type: "math"
+outline: true
 tags: ["math", "ML"]
 ---
 
+<span class="invisible absolute" id="basic-idea"></span>
 #### Basic Idea
 Let's consider the usual setup of a 
 [supervised learning](https://en.wikipedia.org/wiki/Supervised_learning) problem with $n$
@@ -48,6 +50,7 @@ so we consider [regression](https://en.wikipedia.org/wiki/Regression_analysis)  
 <!-- ($Y_i \in \mathbb{R}$)
 ($Y_i \in \{1, \ldots, k\}$) -->
 
+<span class="invisible absolute" id="regression"></span>
 #### Regression
 We want to answer: how to make the regions and how to predict values within them. In supervised learning this reduces to choosing a
 cost function and finding the parameters
@@ -89,6 +92,7 @@ that gives the lowest MSE is also computationally infeasible. So we take a greed
 for all possible predictors in a region, and
 choose the predictor and split that gives the largest reduction in MSE. The two new regions are added to the queue of all regions and the process can continue (in principle) till there's only one data point left in each region.
 
+<span class="invisible absolute" id="pros-and-cons"></span>
 #### Pros and cons
 Although this algorithm is easy to implement and gives interpretable decision trees, they have a high variance and generalize poorly. I.e. the fully-grown trees overfit the training data and have low predictive power.
 
@@ -97,6 +101,7 @@ At the level of individual trees this is tackled by specifying growth constraint
 
 &nbsp;
 
+<span class="invisible absolute" id="references"></span>
 #### References
 [1] Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. _The Elements of Statistical Learning: Data Mining, Inference, and Prediction_. 2nd ed. Springer Series in Statistics. New York: Springer, 2009. [https://doi.org/10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
 

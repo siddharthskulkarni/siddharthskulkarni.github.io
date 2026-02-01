@@ -17,7 +17,7 @@ function App() {
         <RouterTracker />
         <div className="min-h-screen bg-white">
           <Navbar />
-          <main className="px-6 py-12">
+          <main className="max-w-4xl mx-auto px-6">
             <Routes>
               <Route path="/" element={<Home />} />
               <Route path="/math/essays" element={<Essays />} />

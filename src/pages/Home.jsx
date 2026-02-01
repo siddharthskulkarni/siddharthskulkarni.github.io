@@ -23,7 +23,7 @@ const Home = () => {
   const latestEssays = essays.slice(0, 3);
 
   return (
-    <div className="max-w-3xl mx-auto space-y-16">
+    <div className="max-w-3xl space-y-16 mt-8">
       <section className="space-y-8">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-normal font-[verdana] text-blue-900">
