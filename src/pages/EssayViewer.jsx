@@ -99,8 +99,7 @@ const EssayViewer = () => {
   return (
     <div className="relative mt-8">
       <div className="flex justify-center">
-        <div className="flex w-full space-between">
-          {/* Main Content - Centered */}
+        <div className="flex">
           <article className="max-w-xl font-[verdana]">
             <header className="mb-4">
               <h1 className="text-2xl font-normal text-blue-900 leading-tight">
