@@ -3,7 +3,7 @@ import Navbar from './components/Navbar';
 import Home from './pages/Home';
 import Essays from './pages/Essays.jsx';
 import EssayViewer from './pages/EssayViewer.jsx';
-import Bio from './pages/Bio.jsx'
+import About from './pages/About.jsx'
 import Footer from './components/Footer.jsx';
 import { AnalyticsProvider } from './components/Analytics';
 import { RouterTracker } from './components/RouterTracker';
@@ -23,7 +23,7 @@ function App() {
               <Route path="/math/essays" element={<Essays />} />
               <Route path="/misc/essays" element={<Essays />} />
               <Route path="/essays/:id" element={<EssayViewer />} />
-              <Route path="/bio" element={<Bio />} />
+              <Route path="/about" element={<About />} />
             </Routes>
           </main>
           <Footer />

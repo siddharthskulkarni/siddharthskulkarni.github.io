@@ -4,7 +4,7 @@ excerpt: ""
 date: "2026-01-25"
 type: "math"
 outline: true
-tags: ["math", "ML"]
+tags: ["math", "ml"]
 ---
 
 <span class="invisible absolute" id="basic-idea"></span>
@@ -102,7 +102,7 @@ At the level of individual trees this is tackled by specifying growth constraint
 &nbsp;
 
 <span class="invisible absolute" id="references"></span>
-#### References
+### References
 [1] Hastie, Trevor, Robert Tibshirani, and Jerome Friedman. _The Elements of Statistical Learning: Data Mining, Inference, and Prediction_. 2nd ed. Springer Series in Statistics. New York: Springer, 2009. [https://doi.org/10.1007/978-0-387-84858-7](https://doi.org/10.1007/978-0-387-84858-7).
 
 [2] James, Gareth, Daniela Witten, Trevor Hastie, and Robert Tibshirani. _An Introduction to Statistical Learning: with Applications in Python_. 2nd ed. Springer Texts in Statistics. Cham: Springer, 2023. [https://doi.org/10.1007/978-3-031-38747-0](https://doi.org/10.1007/978-3-031-38747-0).

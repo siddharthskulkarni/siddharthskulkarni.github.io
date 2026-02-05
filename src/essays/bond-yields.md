@@ -3,7 +3,7 @@ title: "Computing Bond Yields"
 excerpt: "using numerical methods like Bisection and Newton's Method."
 date: "2025-07-09"
 type: "math"
-tags: ["bonds", "finance", "math"]
+tags: ["bonds", "finance"]
 ---
 
 All [bonds](https://en.wikipedia.org/wiki/Bond_(finance)) are not created equal. There may be many differences: The borrowing party may be the US government, or the World Bank, or a company like Apple. The borrowed amount

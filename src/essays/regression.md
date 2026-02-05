@@ -162,7 +162,7 @@ Broadly, Regression has two types: Parametric (assumes a functional form) and No
 
 &nbsp;
 
-#### Notes
+### Notes
 <span class="invisible absolute" id="note-1"></span>
 [1] Actually, the problem is again to choose the "best" measure of distance (instead of "a" measure). This usually depends on the problem to be solved. $L^1$, $L^2$, [$L^p$](https://en.wikipedia.org/wiki/Lp_space#Preliminaries) or a combination of them are commonly used. For example, [Lasso](https://en.wikipedia.org/wiki/Lasso_(statistics)#Basic_form), or [Ridge](https://en.wikipedia.org/wiki/Ridge_regression#Tikhonov_regularization). 
 
@@ -176,7 +176,7 @@ The additional assumptions in _OLS regression_ guarantee that the estimators $\h
 
 &nbsp;
 
-#### References
+### References
 [1] Casella, G., & Berger, R. L. (2002). _Statistical Inference_ (2nd ed.). Duxbury Press, Pacific Grove, CA.
 
 

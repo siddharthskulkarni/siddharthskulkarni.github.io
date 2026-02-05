@@ -18,7 +18,7 @@ const Essays = () => {
         setEssays(loadedEssays);
         setTags([
           "all",
-          ...new Set(loadedEssays.map((essay) => essay.tags).flat()),
+          ...Array.from(new Set(loadedEssays.map((essay) => essay.tags).flat())).sort(),
         ]);
       } catch (error) {
         console.error("Error loading essays:", error);
