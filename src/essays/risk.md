@@ -86,7 +86,10 @@ $\alpha = 0.01$. Under the parametric models,
 VaR can be easily found using the closed-form equations:
 $$
     \text{VaR}_{1-\alpha} = -(\mu + \sigma \cdot z_\alpha),
-    \quad \text{VaR}_{1-\alpha} = -(\mu + \sigma \cdot t_{\nu, \alpha})\text{,}
+$$
+and
+$$
+    \text{VaR}_{1-\alpha} = -(\mu + \sigma \cdot t_{\nu, \alpha}),
 $$
 where $z_\alpha$ and $t_{\nu, \alpha}$ are the
 standard lower $\alpha$-quantiles. For the non-parametric model,
@@ -149,7 +152,7 @@ is known as the Kupiec Proportion of Failures (PoF) test.
 
 <span class="invisible absolute" id="references"></span>
 ### References
-[1] Mathworks. _Value-at-Risk Estimation and Backtesting_. [https://www.mathworks.com/help/risk/value-at-risk-estimation-and-backtesting.html](https://www.mathworks.com/help/risk/value-at-risk-estimation-and-backtesting.html).
+[1] Mathworks. [_Value-at-Risk Estimation and Backtesting_](https://www.mathworks.com/help/risk/value-at-risk-estimation-and-backtesting.html).
 
 <span class="invisible absolute" id="ref-2"></span>
-[2] _Market Risk_. [https://github.com/siddharthskulkarni/market-risk/blob/main/workflow.ipynb](https://github.com/siddharthskulkarni/market-risk/blob/main/workflow.ipynb).
+[2] [_Market Risk_](https://github.com/siddharthskulkarni/market-risk/blob/main/workflow.ipynb).

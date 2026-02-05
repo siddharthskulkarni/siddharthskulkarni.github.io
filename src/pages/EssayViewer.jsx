@@ -99,7 +99,7 @@ const EssayViewer = () => {
   return (
     <div className="relative mt-8">
       <div className="flex">
-        <article className="max-w-xl font-[verdana]">
+        <article className="max-w-xl font-[verdana] min-w-0">
           <header className="mb-4">
             <h1 className="text-2xl font-normal text-blue-900 leading-tight">
               {essay.title}
