@@ -104,6 +104,9 @@ const EssayViewer = () => {
             <h1 className="text-2xl font-normal text-blue-900 leading-tight">
               {essay.title}
             </h1>
+            {/* <p className="text-gray-600 leading-relaxed">
+              ({essay.excerpt})
+            </p> */}
             <div className="flex mt-2 space-x-4 text-sm text-gray-500">
               <span className="mr-2">{new Date(essay.date).toLocaleString('en-US', {month: "short"}) + ' ' + new Date(essay.date).getFullYear()}</span>
               <span>({essay.tags.join(", ")})</span>
@@ -196,41 +199,6 @@ const EssayViewer = () => {
                       </div>
                     );
                   }
-                  else if (!inline) {
-                    return (
-                      <div className="relative my-6 group">
-                        <div className="absolute top-3 right-3 z-10">
-                          <div className="relative group/copy">
-                            <span className={`
-                              absolute -top-10 left-1/2 -translate-x-1/2 px-2.5 py-1.5 rounded-md text-[11px] font-bold tracking-wide shadow-xl transition-all duration-200 pointer-events-none whitespace-nowrap
-                              ${copiedStates[blockId] 
-                                ? "bg-green-600 text-white opacity-100 translate-y-0 scale-100" 
-                                : "bg-gray-800 text-gray-200 opacity-0 group-hover/copy:opacity-100 translate-y-2 scale-95 group-hover/copy:translate-y-0 group-hover/copy:scale-100"}
-                            `}>
-                              {copiedStates[blockId] ? "Copied!" : "Copy"}
-                              <span className={`absolute -bottom-1 left-1/2 -translate-x-1/2 w-2 h-2 rotate-45 ${copiedStates[blockId] ? 'bg-green-600' : 'bg-gray-800'}`} />
-                            </span>
-                            <button
-                              onClick={() => handleCopy(codeText, blockId)}
-                              className="p-2 bg-[#2d2d2d] hover:bg-[#3e3e3e] rounded transition-all border border-gray-700 opacity-0 group-hover:opacity-100 focus:opacity-100"
-                              title="Copy code"
-                            >
-                              {copiedStates[blockId] ? (
-                                <Check className="w-3.5 h-3.5 text-green-400" />
-                              ) : (
-                                <Copy className="w-3.5 h-3.5 text-gray-400" />
-                              )}
-                            </button>
-                          </div>
-                        </div>
-                        <pre className="bg-[#1e1e1e] text-gray-100 p-4 rounded-md overflow-x-auto font-mono text-sm border border-[#3e3e3e]">
-                          <code className="text-gray-100" {...props}>
-                            {children}
-                          </code>
-                        </pre>
-                      </div>
-                    );
-                  }
                   else {
                     return (
                       <code className="bg-gray-100 px-1.5 py-0.5 rounded text-sm font-mono text-gray-800" {...props}>
@@ -296,6 +264,21 @@ const EssayViewer = () => {
                     }}
                   >
                     {children}
+                  </a>
+                ),
+                img: ({ src, alt, ...props }) => (
+                  <a 
+                    href={src} 
+                    target="_blank" 
+                    rel="noopener noreferrer"
+                    className="inline-block my-4 cursor-pointer"
+                  >
+                    <img 
+                      src={src} 
+                      alt={alt} 
+                      className="max-w-full h-auto"
+                      {...props}
+                    />
                   </a>
                 ),
               }}
