@@ -15,10 +15,10 @@ like interest rates, expected inflation,
 company earnings, and politics. But this
 is far from an exhaustive list and
 there's a lot of uncertainty and randomness involved. 
-If you hold an asset then you're
+If you hold an asset, then you're
 more than happy if the market prices it higher, 
 but if it swings the other way,
-it's a real problem. When you're short on
+it's a real problem. When you're short
 an asset, it's exactly the opposite.
 
 Essentially, this risk that the market
@@ -27,21 +27,20 @@ prices assets differently is market risk.
 Banks and asset managers trade a lot
 of assets and always bear this risk.
 Since the financial system
-is globally interconnected,
-and financial crises
+is globally interconnected and financial crises
 are very expensive for economies, regulators
-also care about it. Investors care about it 
-for optimizing portfolios
-and managing risks internally. Regulators care about it
-to impose capital restrictions.
+also care about it. Investors are interested in
+optimizing portfolios and managing risks internally, while
+regulators need to impose capital restrictions.
 
-Within the quantitative approach we take
-a probabilistic perspective, and define market risk
-more precisely: It's the possibility of large
-losses over a fixed investment horizon. Concretely,
+Within the quantitative approach we
+define market risk more precisely: 
+It's the possibility of large
+losses over a fixed investment horizon. Taking
+a probabilistic perspective,
 the problem is to estimate a probability distribution of returns
 over the chosen period, compute a 
-metric related to the left tail, and backtest it.
+metric related to the left tail, and backtest that metric.
 
 Value-at-Risk (VaR) is a widely-used risk metric.
 It measures the maximum loss over a fixed time period
@@ -55,9 +54,10 @@ with a 1% probability.
 
 Let's consider a single-asset portfolio
 with [GLD](https://www.nasdaq.com/market-activity/etf/gld),
-and estimate and backtest its 1-day 99% VaR. [[1](#note-1)]
+and estimate and backtest its 1-day 99% VaR. 
+<!-- [[1](#note-1)] -->
 
-Suppose that $X_i$ are the i.i.d. daily log-returns
+Suppose $X_i$ are the i.i.d. daily log-returns
 for $i = 1, \ldots, n$. We
 (1) estimate its density function $f_X$, (2) compute
 $\text{VaR}_{1-\alpha} = -F_X^{-1}(\alpha)$, and (3) backtest 
@@ -95,13 +95,11 @@ numerically compute the quantile.
 ![GLD 5Y Returns](/images/risk-3-vars.png)
 
 #### (3) Backtest VaR
-There's a clever 
-way to backtest the $\text{VaR}_{1-\alpha}$ values.
 The VaR tells us that 
 $\mathbb{P}(X_i \leq -\text{VaR}_{1-\alpha}) = \alpha$.
 So we define a breach of the VaR level as
 $$
-    U_i = \mathbf{1}_{X_i \leq -\text{VaR}_{1-\alpha}}(X_i),
+    U_i = \mathbf{1}_{X_i \leq -\text{VaR}_{1-\alpha}},
 $$
 and assume
 $U_i \overset{\text{i.i.d.}}{\sim} \text{ Bernoulli}(p)$.
