@@ -6,11 +6,10 @@ type: "math"
 tags: ["finance", "risk"]
 ---
 
-Almost everyone's heard a version of: "All investments are subject to
-_market risk_. Read all scheme related documents
-carefully."
+Almost everyone has heard a version of "All investments are subject to
+_market risk_."
 
-The market prices most financial assets. These 
+The market prices most financial assets. And these 
 prices are based on many factors
 like interest rates, expected inflation,
 company earnings, and politics. But this
