@@ -271,7 +271,7 @@ const EssayViewer = () => {
                     href={src} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-block my-4 cursor-pointer"
+                    className="inline-block mb-8 cursor-pointer"
                   >
                     <img 
                       src={src} 
@@ -279,6 +279,7 @@ const EssayViewer = () => {
                       className="max-w-full h-auto"
                       {...props}
                     />
+                    <center className="text-gray-500 italic text-sm">{props?.title}</center>
                   </a>
                 ),
               }}
