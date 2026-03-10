@@ -6,8 +6,6 @@ type: "misc"
 tags: ["AI"]
 ---
 
-<!-- Over the last week I began building
-an AI agent to do a narrow task. My goal is to give an overview with a narrative that makes sense. -->
 
 I was surprised to see, although quite late,
 how the models can do so much with

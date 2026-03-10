@@ -4,27 +4,93 @@ on:
   push:
     branches: ["main"]
 
+permissions:
+  contents: write
+
 jobs:
   deploy:
     runs-on: ubuntu-latest
     steps:
       - uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Detect whether this was an essays-only change
+        id: changes
+        shell: bash
+        run: |
+          set -euo pipefail
+
+          base="${{ github.event.before }}"
+          head="${{ github.sha }}"
+
+          if [[ -z "$base" || "$base" == "0000000000000000000000000000000000000000" ]]; then
+            changed_files="$(git show --name-only --pretty="" "$head")"
+          else
+            changed_files="$(git diff --name-only "$base" "$head")"
+          fi
+
+          echo "Changed files:"
+          echo "$changed_files"
+
+          essay_only=true
+          while IFS= read -r file; do
+            [[ -z "$file" ]] && continue
+            if [[ ! "$file" =~ ^src/essays/.*\.md$ ]]; then
+              essay_only=false
+              break
+            fi
+          done <<< "$changed_files"
+
+          echo "essay_only=$essay_only" >> "$GITHUB_OUTPUT"
 
       - name: Setup Node
         uses: actions/setup-node@v4
         with:
           node-version: '20'
+          cache: npm
 
       - name: Install dependencies
-        run: npm install
+        run: npm ci
+
+      - name: Sync essays to public assets (no build)
+        if: steps.changes.outputs.essay_only == 'true'
+        run: npm run sync:essays
+
+      - name: Prepare deploy payload (essays-only)
+        if: steps.changes.outputs.essay_only == 'true'
+        shell: bash
+        run: |
+          set -euo pipefail
+          shopt -s nullglob
+          rm -rf publish
+          mkdir -p publish/essays
+          cp -f CNAME publish/CNAME
+          cp -f public/essays/index.json publish/essays/index.json
+          md_files=(public/essays/*.md)
+          if (( ${#md_files[@]} )); then
+            cp -f "${md_files[@]}" publish/essays/
+          fi
 
       - name: Build project
+        if: steps.changes.outputs.essay_only != 'true'
         run: npm run build
 
       - name: Add CNAME file
+        if: steps.changes.outputs.essay_only != 'true'
         run: echo 'www.siddharthsk.com' > ./dist/CNAME
 
-      - name: Deploy to GitHub Pages
+      - name: Deploy to GitHub Pages (essays-only)
+        if: steps.changes.outputs.essay_only == 'true'
+        uses: peaceiris/actions-gh-pages@v3
+        with:
+          github_token: ${{ secrets.PAT_TOKEN }}
+          publish_dir: ./publish
+          publish_branch: gh-pages
+          keep_files: true
+
+      - name: Deploy to GitHub Pages (full)
+        if: steps.changes.outputs.essay_only != 'true'
         uses: peaceiris/actions-gh-pages@v3
         with:
           github_token: ${{ secrets.PAT_TOKEN }}

@@ -5,7 +5,10 @@
   "type": "module",
   "homepage": "https://siddharthsk.com",
   "scripts": {
+    "sync:essays": "node scripts/sync-essays.mjs",
+    "predev": "npm run sync:essays",
     "dev": "vite",
+    "prebuild": "npm run sync:essays",
     "build": "vite build",
     "lint": "eslint .",
     "preview": "vite preview",

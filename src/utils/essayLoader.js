@@ -1,46 +1,40 @@
-import matter from 'gray-matter';
+const ESSAYS_INDEX_URL = '/essays/index.json';
 
-// Import all writing markdown files using the newer Vite glob syntax
-const writingModules = import.meta.glob('../essays/*.md', { 
-  query: '?raw',
-  import: 'default',
-  eager: true 
-});
+let essaysIndexPromise = null;
+
+const fetchEssaysIndex = async () => {
+  const res = await fetch(ESSAYS_INDEX_URL, { cache: 'no-cache' });
+  if (!res.ok) {
+    throw new Error(`Failed to load essays index (${res.status})`);
+  }
+  const data = await res.json();
+  return Array.isArray(data) ? data : [];
+};
 
 export const loadEssays = async (type = null) => {
-  const essays = [];
-  
-  for (const path in writingModules) {
-    try {
-      const content = writingModules[path];
-      const { data, content: markdownContent } = matter(content);
-      const id = path.split('/').pop().replace('.md', '');
-
-      const writing = {
-        id,
-        title: data.title || 'Untitled',
-        excerpt: data.excerpt || '',
-        date: data.date || new Date().toISOString().split('T')[0],
-        type: data.type || 'draft',
-        tags: data.tags || [],
-        content: markdownContent || '',
-        outline: data.outline
-      };
-
-      essays.push(writing);
-    } catch (error) {
-      console.error(`Error loading writing from ${path}:`, error);
-    }
+  if (!essaysIndexPromise) {
+    essaysIndexPromise = fetchEssaysIndex();
   }
 
-  // Filter by type if provided
-  const filteredEssays = type ? essays.filter(e => e.type === type) : essays;
+  const essays = await essaysIndexPromise;
+  const filteredEssays = type ? essays.filter((e) => e.type === type) : essays;
 
-  // Sort by date (newest first)
-  return filteredEssays.sort((a, b) => new Date(b.date) - new Date(a.date));
+  return filteredEssays
+    .slice()
+    .sort((a, b) => new Date(b.date) - new Date(a.date));
 };
 
 export const loadEssayById = async (id, type = null) => {
   const essays = await loadEssays(type);
-  return essays.find(writing => writing.id === id);
+  const essayMeta = essays.find((e) => e.id === id);
+  if (!essayMeta) return null;
+
+  const cacheKey = essayMeta.hash ? `?v=${encodeURIComponent(essayMeta.hash)}` : '';
+  const res = await fetch(`/essays/${encodeURIComponent(id)}.md${cacheKey}`, {
+    cache: 'no-cache',
+  });
+  if (!res.ok) return null;
+  const content = await res.text();
+
+  return { ...essayMeta, content };
 };
