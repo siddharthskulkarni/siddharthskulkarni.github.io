@@ -18,10 +18,8 @@ const About = () => {
           Bio
         </h2>
         <p className="text-gray-700 text-justify">
-          Hi, I’m Siddharth Kulkarni. I have a B.Tech
-          in Computer Engineering from NIT Surat and
-          an MS in Applied Mathematics from
-          UMass Amherst. 
+          Hi, I’m Siddharth Kulkarni. I have an MS in Applied Mathematics from
+          UMass Amherst and a B.Tech in Computer Engineering from NIT Surat. 
         </p> <br/>
         <p className="text-gray-700 text-justify">
           I write about mathematics, machine learning,

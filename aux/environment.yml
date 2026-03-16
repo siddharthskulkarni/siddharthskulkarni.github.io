@@ -1,0 +1,12 @@
+name: essays-aux
+channels:
+  - conda-forge
+  - defaults
+dependencies:
+  - python>=3.11
+  - numpy
+  - pandas
+  - matplotlib
+  - seaborn
+  - jupyterlab
+

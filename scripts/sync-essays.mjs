@@ -14,8 +14,19 @@ const ensureDir = async (dir) => {
   await fs.mkdir(dir, { recursive: true });
 };
 
-const main = async () => {
+export const syncEssays = async () => {
   await ensureDir(outDir);
+
+  // Prune previously generated assets (supports deletions/renames)
+  const existingOut = await fs.readdir(outDir, { withFileTypes: true });
+  await Promise.all(
+    existingOut
+      .filter((e) => e.isFile())
+      .map((e) => e.name)
+      .filter((name) => name !== '.gitkeep')
+      .filter((name) => name.endsWith('.md') || name === 'index.json')
+      .map((name) => fs.rm(path.join(outDir, name), { force: true }))
+  );
 
   const entries = await fs.readdir(srcDir, { withFileTypes: true });
   const mdFiles = entries
@@ -58,7 +69,9 @@ const main = async () => {
   );
 };
 
-main().catch((err) => {
-  console.error(err);
-  process.exitCode = 1;
-});
+if (import.meta.url === new URL(process.argv[1], 'file:').href) {
+  syncEssays().catch((err) => {
+    console.error(err);
+    process.exitCode = 1;
+  });
+}
