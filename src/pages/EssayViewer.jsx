@@ -271,7 +271,7 @@ const EssayViewer = () => {
                     href={src} 
                     target="_blank" 
                     rel="noopener noreferrer"
-                    className="inline-block mb-8 cursor-pointer"
+                    className="mb-8 cursor-pointer"
                   >
                     <img 
                       src={src} 
