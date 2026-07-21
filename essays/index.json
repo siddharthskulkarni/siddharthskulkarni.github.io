@@ -1,0 +1,93 @@
+[
+  {
+    "id": "german-tank",
+    "title": "The German Tank Problem",
+    "excerpt": "",
+    "date": "2026-07-21",
+    "type": "math",
+    "tags": [
+      "math",
+      "stat",
+      "puzzle"
+    ],
+    "outline": false,
+    "hash": "4f21d628e9b94528f333270f7dca3c5ccf7f6dd8"
+  },
+  {
+    "id": "time-series",
+    "title": "Time Series Analysis",
+    "excerpt": "",
+    "date": "2026-03-15",
+    "type": "math",
+    "tags": [
+      "math",
+      "stat"
+    ],
+    "outline": false,
+    "hash": "eabc389cd195ea830ff610c8a126eb341ade2719"
+  },
+  {
+    "id": "ai-apps",
+    "title": "Notes on building AI apps",
+    "excerpt": "",
+    "date": "2026-02-16",
+    "type": "misc",
+    "tags": [
+      "AI"
+    ],
+    "outline": false,
+    "hash": "09d55cd7d554afc0bd92aa6cc4c3d5d2d3751a21"
+  },
+  {
+    "id": "risk",
+    "title": "Basics of Market Risk",
+    "excerpt": "Measuring and backtesting VaR using parametric and historical methods.",
+    "date": "2026-02-01",
+    "type": "math",
+    "tags": [
+      "finance",
+      "risk"
+    ],
+    "outline": false,
+    "hash": "c1a90d725719187d9495b85c97cdc4d099ad161f"
+  },
+  {
+    "id": "trees",
+    "title": "Introduction to Tree-based methods",
+    "excerpt": "",
+    "date": "2026-01-25",
+    "type": "math",
+    "tags": [
+      "math",
+      "ml"
+    ],
+    "outline": true,
+    "hash": "41b1f77f1ef75efe767e486e952b43672e071c4a"
+  },
+  {
+    "id": "regression",
+    "title": "Mathematics of Linear Regression",
+    "excerpt": "",
+    "date": "2025-07-10",
+    "type": "math",
+    "tags": [
+      "math",
+      "stat"
+    ],
+    "outline": false,
+    "hash": "a57a7859424240cd9c9494e497fddb3e796c1072"
+  },
+  {
+    "id": "bond-yields",
+    "title": "Computing Bond Yields",
+    "excerpt": "using numerical methods like Bisection and Newton's Method.",
+    "date": "2025-07-09",
+    "type": "math",
+    "tags": [
+      "bonds",
+      "finance"
+    ],
+    "outline": false,
+    "hash": "8d3ca873998a0fa3ebd6a554be0a61af8a272cfc"
+  }
+]
