@@ -1,9 +1,8 @@
 import { useState, useMemo, useEffect } from "react";
-import { Link, useLocation } from "react-router-dom";
+import { Link } from "react-router-dom";
 import { loadEssays } from "../utils/essayLoader";
 
 const Essays = () => {
-  const location = useLocation();
   const [selectedTag, setSelectedTag] = useState("all");
   const [tags, setTags] = useState([]);
   const [essays, setEssays] = useState([]);
@@ -13,8 +12,7 @@ const Essays = () => {
   useEffect(() => {
     const fetchEssays = async () => {
       try {
-        const type = location.pathname.includes("math") ? "math" : "misc";        
-        const loadedEssays = await loadEssays(type);
+        const loadedEssays = await loadEssays();
         setEssays(loadedEssays);
         setTags([
           "all",
@@ -28,7 +26,7 @@ const Essays = () => {
     };
 
     fetchEssays();
-  }, [location.pathname]);
+  }, []);
 
   // Filter essays based on selected criteria
   const filteredEssays = useMemo(() => {
@@ -60,7 +58,7 @@ const Essays = () => {
     <div className="max-w-3xl mt-8 font-[verdana] text-normal">
       <div className="flex items-center justify-between">
           <h2 className="my-3 text-xl font-normal font-[verdana] text-blue-900">
-            Essays / Notes
+            Writing
           </h2>
         </div>
       {/* Filters */}

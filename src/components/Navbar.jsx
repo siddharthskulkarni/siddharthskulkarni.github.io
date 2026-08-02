@@ -8,9 +8,8 @@ const Navbar = () => {
 
   const navItems = [
     { path: '/', label: 'Home' },
-    { path: '/math/essays', label: 'Math' },
-    { path: '/misc/essays', label: 'Misc' },
-    {path: '/about', label: 'About'},
+    { path: '/essays', label: 'Writing' },
+    { path: '/about', label: 'About' },
   ];
 
   const isActive = (path) => location.pathname === path;
