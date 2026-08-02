@@ -11,21 +11,26 @@ const fetchEssaysIndex = async () => {
   return Array.isArray(data) ? data : [];
 };
 
-export const loadEssays = async (type = null) => {
+export const loadEssays = async (type = null, options = {}) => {
+  const { includeArchived = false } = options;
+
   if (!essaysIndexPromise) {
     essaysIndexPromise = fetchEssaysIndex();
   }
 
   const essays = await essaysIndexPromise;
-  const filteredEssays = type ? essays.filter((e) => e.type === type) : essays;
+  const baseEssays = type ? essays.filter((e) => e.type === type) : essays;
+  const visibleEssays = includeArchived
+    ? baseEssays
+    : baseEssays.filter((essay) => !(essay.tags || []).includes('archive'));
 
-  return filteredEssays
+  return visibleEssays
     .slice()
     .sort((a, b) => new Date(b.date) - new Date(a.date));
 };
 
 export const loadEssayById = async (id, type = null) => {
-  const essays = await loadEssays(type);
+  const essays = await loadEssays(type, { includeArchived: true });
   const essayMeta = essays.find((e) => e.id === id);
   if (!essayMeta) return null;
 

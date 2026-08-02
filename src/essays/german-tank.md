@@ -3,7 +3,7 @@ title: "The German Tank Problem"
 excerpt: ""
 date: "2026-07-21"
 type: "math"
-tags: ["math", "stat", "puzzle"]
+tags: ["math", "stat", "problem"]
 ---
 
 I first heard of the [German Tank problem](https://en.wikipedia.org/wiki/German_tank_problem) in [this EiE episode](https://www.youtube.com/watch?v=tKYKybyH0TU), but didn't think about it until recently, when it landed in my inbox as a question.

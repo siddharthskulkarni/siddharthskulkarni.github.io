@@ -14,10 +14,12 @@ const Essays = () => {
       try {
         const loadedEssays = await loadEssays();
         setEssays(loadedEssays);
-        setTags([
-          "all",
-          ...Array.from(new Set(loadedEssays.map((essay) => essay.tags).flat())).sort(),
-        ]);
+        const visibleTags = Array.from(
+          new Set(loadedEssays.flatMap((essay) => essay.tags || []))
+        )
+          .filter((tag) => tag !== "archive")
+          .sort();
+        setTags(["all", ...visibleTags]);
       } catch (error) {
         console.error("Error loading essays:", error);
       } finally {
