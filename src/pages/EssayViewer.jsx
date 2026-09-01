@@ -9,6 +9,7 @@ import 'katex/dist/katex.min.css';
 import { useState, useEffect } from 'react';
 import { loadEssayById } from '../utils/essayLoader';
 import { Copy, Check} from 'lucide-react';
+import strings from '../strings.json';
 
 const CopyButton = ({ text }) => {
   const [copied, setCopied] = useState(false);
@@ -81,7 +82,7 @@ const EssayViewer = () => {
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="text-gray-600">Loading...</div>
+        <div className="text-gray-600">{strings.common.loading}</div>
       </div>
     );
   }
@@ -90,7 +91,7 @@ const EssayViewer = () => {
     return (
       <div className="max-w-3xl mx-auto text-center py-12">
         <h1 className="text-xl font-normal text-blue-900 leading-tight">
-          Essay not found.
+          {strings.essayViewer.notFound}
         </h1>
       </div>
     );
@@ -188,7 +189,7 @@ const EssayViewer = () => {
                         </div>
                         <div className="bg-[#f5f5f5] rounded-md overflow-hidden border border-gray-300">
                           <div className="bg-[#e8e8e8] px-4 py-2 text-xs text-gray-600 font-medium border-b border-gray-300">
-                            Output
+                            {strings.essayViewer.output}
                           </div>
                           <pre className="m-0 p-4 bg-transparent font-mono text-sm overflow-x-auto">
                             <code className="text-gray-800 whitespace-pre">

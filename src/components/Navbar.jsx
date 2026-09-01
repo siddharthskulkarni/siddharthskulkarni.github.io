@@ -1,15 +1,16 @@
 import { Link, useLocation } from 'react-router-dom';
 import { Menu, X } from 'lucide-react';
 import { useState } from 'react';
+import strings from '../strings.json';
 
 const Navbar = () => {
   const location = useLocation();
   const [isMenuOpen, setIsMenuOpen] = useState(false);
 
   const navItems = [
-    { path: '/', label: 'Home' },
-    { path: '/essays', label: 'Writing' },
-    { path: '/about', label: 'About' },
+    { path: '/', label: strings.nav.home },
+    { path: '/essays', label: strings.nav.writing },
+    { path: '/about', label: strings.nav.about },
   ];
 
   const isActive = (path) => location.pathname === path;
@@ -20,7 +21,7 @@ const Navbar = () => {
         <div className="my-3 flex justify-between items-center h-16">
           {/* Logo/Name */}
           <Link to="/" className="text-opacity-10 text-3xl font-[verdana] text-blue-900 font-medium">
-            SK
+            {strings.nav.brand}
           </Link>
 
           {/* Desktop Navigation */}
@@ -45,7 +46,7 @@ const Navbar = () => {
             <button
               onClick={() => setIsMenuOpen(!isMenuOpen)}
               className="p-2 rounded-lg  text-gray-600 hover:text-gray-900"
-              aria-label="Toggle menu"
+              aria-label={strings.nav.toggleMenu}
             >
               {isMenuOpen ? <X className="w-4 h-4" /> : <Menu className="w-4 h-4" />}
             </button>

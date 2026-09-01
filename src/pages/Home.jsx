@@ -1,6 +1,7 @@
 import { Link } from 'react-router-dom';
 import { useEffect, useState } from 'react';
 import { loadEssays } from '../utils/essayLoader';
+import strings from '../strings.json';
 
 const Home = () => {
   const [essays, setEssays] = useState([]);
@@ -27,12 +28,12 @@ const Home = () => {
       <section className="space-y-8">
         <div className="flex items-center justify-between">
           <h2 className="text-xl font-normal font-[verdana] text-blue-900">
-            New:
+            {strings.home.heading}
           </h2>
         </div>
 
         {loading ? (
-          <div className="text-gray-600">Loading...</div>
+          <div className="text-gray-600">{strings.common.loading}</div>
         ) : (
           <div className="space-y-5 font-[verdana]">
             {latestEssays.map((essay) => (

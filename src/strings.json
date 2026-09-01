@@ -1,0 +1,34 @@
+{
+  "common": {
+    "loading": "Loading...",
+    "clear": "clear"
+  },
+  "nav": {
+    "brand": "SK",
+    "home": "Home",
+    "writing": "Writing",
+    "about": "About",
+    "toggleMenu": "Toggle menu"
+  },
+  "footer": {
+    "copyright": "© 2026 Siddharth Kulkarni"
+  },
+  "about": {
+    "title": "Bio",
+    "photoAlt": "Siddharth Kulkarni",
+    "intro": "Hi, I’m Siddharth Kulkarni. I have an MS in Applied Mathematics from UMass Amherst and a B.Tech in Computer Engineering from NIT Surat.",
+    "summary": "I write about mathematics, finance, philosophy, and other life stuff."
+  },
+  "home": {
+    "heading": "New:"
+  },
+  "essays": {
+    "title": "Writing",
+    "filterAll": "all",
+    "noEssays": "No essays found."
+  },
+  "essayViewer": {
+    "notFound": "Essay not found.",
+    "output": "Output"
+  }
+}

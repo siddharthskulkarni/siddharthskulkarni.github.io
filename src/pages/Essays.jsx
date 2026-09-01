@@ -1,9 +1,10 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadEssays } from "../utils/essayLoader";
+import strings from "../strings.json";
 
 const Essays = () => {
-  const [selectedTag, setSelectedTag] = useState("all");
+  const [selectedTag, setSelectedTag] = useState(strings.essays.filterAll);
   const [tags, setTags] = useState([]);
   const [essays, setEssays] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -19,7 +20,7 @@ const Essays = () => {
         )
           .filter((tag) => tag !== "archive")
           .sort();
-        setTags(["all", ...visibleTags]);
+        setTags([strings.essays.filterAll, ...visibleTags]);
       } catch (error) {
         console.error("Error loading essays:", error);
       } finally {
@@ -34,7 +35,7 @@ const Essays = () => {
   const filteredEssays = useMemo(() => {
     return essays.filter((essay) => {
       // Filter by tags
-      if (selectedTag !== "all" && !essay.tags.includes(selectedTag)) {
+      if (selectedTag !== strings.essays.filterAll && !essay.tags.includes(selectedTag)) {
         return false;
       }
 
@@ -43,15 +44,15 @@ const Essays = () => {
   }, [essays, selectedTag]);
 
   const clearFilters = () => {
-    setSelectedTag("all");
+    setSelectedTag(strings.essays.filterAll);
   };
 
-  const hasActiveFilters = selectedTag !== "all";
+  const hasActiveFilters = selectedTag !== strings.essays.filterAll;
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="text-gray-600">Loading...</div>
+        <div className="text-gray-600">{strings.common.loading}</div>
       </div>
     );
   }
@@ -60,7 +61,7 @@ const Essays = () => {
     <div className="max-w-3xl mt-8 font-[verdana] text-normal">
       <div className="flex items-center justify-between">
           <h2 className="my-3 text-xl font-normal font-[verdana] text-blue-900">
-            Writing
+            {strings.essays.title}
           </h2>
         </div>
       {/* Filters */}
@@ -85,7 +86,7 @@ const Essays = () => {
               onClick={clearFilters}
               className="text-sm underline text-gray-500 hover:text-gray-700"
             >
-              clear
+              {strings.common.clear}
             </button>
           )}
         </div>
@@ -95,7 +96,7 @@ const Essays = () => {
       <div className="space-y-12">
         {filteredEssays.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">No essays found.</p>
+            <p className="text-gray-500">{strings.essays.noEssays}</p>
           </div>
         ) : (
           <div className="space-y-8">
