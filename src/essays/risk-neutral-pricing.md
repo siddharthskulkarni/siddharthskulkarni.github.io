@@ -5,7 +5,13 @@ date: "2026-09-01"
 tags: ["math", "finance"]
 ---
 
-To keep things simple, let's talk about a call option $C$ on a stock $S$ expiring at $T$; let $B$ be the risk-free money account. The main ideas behind pricing such derivatives are _replication_ and _no-arbitrage_. If you put together a portfolio $\Pi$ that has the same payoff as $C$ at $T$, rebalance it at every instant so it continues to match the payoff of $C$ at $T$, i.e. $\Pi_T = C_T$ for all $t$, and suppose _no-arbitrage_, then the value of $C$ must equal the value of $\Pi$ at all times: $C_t = \Pi_t$.
+To keep things simple, let's talk about a call option $C$ on a stock $S$ expiring at $T$. The main ideas behind pricing such derivatives are _replication_ and _no-arbitrage_. If you put together a portfolio $\Pi$:
+
+1. that has the same payoff as $C$ at $T$, 
+2. rebalance it at every instant so it _continues_ to match the payoff of $C$ at $T$, i.e. $\Pi_T = C_T$ at any $t$, without additional cost,
+3. and suppose _no-arbitrage_, 
+
+then the value of $C$ must equal the value of $\Pi$ at all times: $C_t = \Pi_t$.
 
 Now the problem is to figure out $\Pi_t$ instead of $C_t$. For this, we need a model for the underlying $S$.
 
@@ -27,7 +33,7 @@ $$
 \end{align*}  
 $$
 
-Solving for $\Delta$ gives by subtracting the second equation from the first gives
+Solving for $\Delta$ by subtracting the second equation from the first gives
 $$
 \begin{align*}
 \Delta (u-d)S &= C_u-C_d \\
@@ -78,23 +84,24 @@ $$
 &= \mathbb{E}^{\mathbb{Q}}[e^{-r}\,\Pi_1].
 \end{align*}
 $$
-And by no-arbitrage, the option must have the same value as its replicating portfolio, so
+
+By no-arbitrage, as mentioned, the option must have the same value as its replicating portfolio:
 $$  
 C_0=\Pi_0= \mathbb{E}^{\mathbb{Q}}[e^{-r}\,\Pi_1].  
 $$
 
-So, a self-financing, replicating portfolio $\Pi$ and the no-arbitrage assumption, and our model allowed us to define a new probability measure $\mathbb{Q}$ under which the price of $C$—by replication, dynamic-hedging, and no-arbitrage—came out as an expectation.
+So, a self-financing, replicating portfolio $\Pi$, the no-arbitrage assumption, _and_ our model allowed us to define a new probability measure $\mathbb{Q}$ under which the price of $C$ — by replication, dynamic-hedging, and no-arbitrage — came out as an expectation.
 
-Note that $\Pi$ isn't risk-free; it has the same risk or same exposure to the risky underlying $S$ as $C$. And remember, the fundamental way to price any asset is by discounting its expected cash flows using a _suitable_ rate. Suitable in the sense that it reflects the riskiness of the asset and your risk preference (or at least the equilibrium expected return like $\beta$ from CAPM). But, despite $\Pi$ being risky, the above formula is just the expected value discounted at the risk-free rate, without any risk premium: as if all investors were risk-neutral, expecting only the risk-free rate from _any_ (risk-free or risky) asset. Hence the name risk-neutral measure.
+Note that $\Pi$ isn't risk-free; it has the same risk or same exposure to the risky underlying $S$ as $C$. And remember, the fundamental way to price any asset is by discounting its expected cash flows using a _suitable_ rate. Suitable in the sense that it reflects the riskiness of the asset and your risk preference (or the equilibrium expected return like $\beta$ from CAPM). But, despite $\Pi$ being risky, the above formula is _just_ the expected value discounted at the risk-free rate without any risk premium: as if all investors were risk-neutral, expecting only the risk-free rate from _any_ (risk-free or risky) asset. Hence the name risk-neutral measure.
 
-The more interesting question is why and how no-arbitrage and risk-neutral measures are related.
+The more interesting question is why and how no-arbitrage, replication and completeness, and risk-neutral measures are related.
 
 &nbsp;
 
 <span class="invisible absolute" id="notes"></span>
 #### Notes
 <span class="invisible absolute" id="note-1"></span>
-[1] This estimator is, in fact, the MVUE (minimum variance unbiased estimator).
+[1] My understanding is essentially a combination of the top two answers on this [thread](https://quant.stackexchange.com/questions/55239/explaining-the-risk-neutral-measure).
 
 &nbsp;
 

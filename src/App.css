@@ -15,3 +15,28 @@
 ::-webkit-scrollbar-thumb:hover {
   background: #a8a8a8;
 }
+
+.essay-content ol {
+  list-style: none;
+  padding-left: 1.5rem;
+  counter-reset: essay-list-counter;
+}
+
+.essay-content ol > li {
+  position: relative;
+  counter-increment: essay-list-counter;
+  padding-left: 0.35rem;
+}
+
+.essay-content ol > li::before {
+  content: '(' counter(essay-list-counter) ')';
+  position: absolute;
+  left: -1.5rem;
+  top: 0;
+  color: #4b5563;
+  margin-right: 0.35rem;
+}
+
+.essay-content li {
+  list-style: none;
+}

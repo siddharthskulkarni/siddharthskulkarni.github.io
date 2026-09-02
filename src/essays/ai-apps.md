@@ -3,7 +3,7 @@ title: "Notes on building AI apps"
 excerpt: ""
 date: "2026-02-16"
 type: "misc"
-tags: ["AI"]
+tags: ["AI", "archive"]
 ---
 
 

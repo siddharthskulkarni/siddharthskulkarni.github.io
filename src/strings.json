@@ -7,11 +7,17 @@
     "brand": "SK",
     "home": "Home",
     "writing": "Writing",
-    "about": "About",
+    "bio": "Bio",
     "toggleMenu": "Toggle menu"
   },
   "footer": {
-    "copyright": "© 2026 Siddharth Kulkarni"
+    "copyright": "© 2026 Siddharth Kulkarni",
+    "socials": [
+      { "label": "X", "icon": "x", "url": "https://x.com/siddharthskulk" },
+      { "label": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/in/siddharth-s-kulkarni/" },
+      { "label": "Substack", "icon": "substack", "url": "https://substack.com/@siddharthkulkarni" },
+      { "label": "GitHub", "icon": "github", "url": "https://github.com/siddharthskulkarni" }
+    ]
   },
   "about": {
     "title": "Bio",

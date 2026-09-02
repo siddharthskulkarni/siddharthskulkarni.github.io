@@ -100,7 +100,7 @@ const EssayViewer = () => {
   return (
     <div className="relative mt-8">
       <div className="flex">
-        <article className="max-w-xl font-[verdana] min-w-0">
+        <article className="essay-content max-w-xl font-[verdana] min-w-0">
           <header className="mb-4">
             <h1 className="text-2xl font-normal text-blue-900 leading-tight">
               {essay.title}
@@ -247,10 +247,10 @@ const EssayViewer = () => {
                   <ul className="list-disc list-inside mb-6 space-y-2 text-gray-700">{children}</ul>
                 ),
                 ol: ({ children }) => (
-                  <ol className="list-decimal list-inside mb-6 space-y-2 text-gray-700">{children}</ol>
+                  <ol className="mb-6 space-y-2 text-gray-700">{children}</ol>
                 ),
-                li: ({ children }) => (
-                  <li className="leading-relaxed">{children}</li>
+                li: ({ children, ...props }) => (
+                  <li className="leading-relaxed" {...props}>{children}</li>
                 ),
                 a: ({href, children}) => (
                   <a 

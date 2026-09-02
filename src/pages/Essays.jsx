@@ -1,10 +1,9 @@
 import { useState, useMemo, useEffect } from "react";
 import { Link } from "react-router-dom";
 import { loadEssays } from "../utils/essayLoader";
-import strings from "../strings.json";
 
 const Essays = () => {
-  const [selectedTag, setSelectedTag] = useState(strings.essays.filterAll);
+  const [selectedTag, setSelectedTag] = useState("all");
   const [tags, setTags] = useState([]);
   const [essays, setEssays] = useState([]);
   const [loading, setLoading] = useState(true);
@@ -20,7 +19,7 @@ const Essays = () => {
         )
           .filter((tag) => tag !== "archive")
           .sort();
-        setTags([strings.essays.filterAll, ...visibleTags]);
+        setTags(["all", ...visibleTags]);
       } catch (error) {
         console.error("Error loading essays:", error);
       } finally {
@@ -35,7 +34,7 @@ const Essays = () => {
   const filteredEssays = useMemo(() => {
     return essays.filter((essay) => {
       // Filter by tags
-      if (selectedTag !== strings.essays.filterAll && !essay.tags.includes(selectedTag)) {
+      if (selectedTag !== "all" && !essay.tags.includes(selectedTag)) {
         return false;
       }
 
@@ -44,15 +43,15 @@ const Essays = () => {
   }, [essays, selectedTag]);
 
   const clearFilters = () => {
-    setSelectedTag(strings.essays.filterAll);
+    setSelectedTag("all");
   };
 
-  const hasActiveFilters = selectedTag !== strings.essays.filterAll;
+  const hasActiveFilters = selectedTag !== "all";
 
   if (loading) {
     return (
       <div className="flex items-center justify-center min-h-64">
-        <div className="text-gray-600">{strings.common.loading}</div>
+        <div className="text-gray-600">Loading...</div>
       </div>
     );
   }
@@ -61,7 +60,7 @@ const Essays = () => {
     <div className="max-w-3xl mt-8 font-[verdana] text-normal">
       <div className="flex items-center justify-between">
           <h2 className="my-3 text-xl font-normal font-[verdana] text-blue-900">
-            {strings.essays.title}
+            Writing
           </h2>
         </div>
       {/* Filters */}
@@ -86,7 +85,7 @@ const Essays = () => {
               onClick={clearFilters}
               className="text-sm underline text-gray-500 hover:text-gray-700"
             >
-              {strings.common.clear}
+              clear
             </button>
           )}
         </div>
@@ -96,25 +95,25 @@ const Essays = () => {
       <div className="space-y-12">
         {filteredEssays.length === 0 ? (
           <div className="text-center py-12">
-            <p className="text-gray-500">{strings.essays.noEssays}</p>
+            <p className="text-gray-500">No essays found.</p>
           </div>
         ) : (
-          <div className="space-y-8">
+          <div className="space-y-6">
             {filteredEssays.map((essay) => (
               <article key={essay.id} className="group">
                 <Link
                   to={`/essays/${essay.id}`}
                   className="block transition-opacity"
                 >
-                  <h3 className="text-lg font-semibold text-gray-900 mb-2 leading-tight group-hover:text-gray-700">
+                  <h3 className="text-lg font-medium text-gray-900 leading-tight group-hover:text-gray-700">
                     {essay.title}
                   </h3>
 
-                  <p className="text-gray-600 leading-relaxed">
+                  <p className="text-gray-500 leading-relaxed">
                     {essay.excerpt}
                   </p>
                 </Link>
-                <div className="flex items-start justify-between mb-3">
+                <div className="flex items-start justify-between mb-2">
                   <div className="flex items-center space-x-4">
                     {/* <span className="text-sm text-gray-500">
                         {new Date(essay.date).toLocaleString('en-US', {month: "short"}) + ' ' +new Date(essay.date).getFullYear()}

@@ -1,7 +1,7 @@
 import { useEffect } from 'react';
 import strings from '../strings.json';
 
-const About = () => {
+const Bio = () => {
 
   useEffect(() => {
   }, []);
@@ -30,4 +30,4 @@ const About = () => {
   )
 };
 
-export default About; 
+export default Bio; 
