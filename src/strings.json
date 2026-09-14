@@ -13,6 +13,7 @@
   "footer": {
     "copyright": "© 2026 Siddharth Kulkarni",
     "socials": [
+      { "label": "Email", "icon": "email", "url": "mailto:sidkmisc@gmail.com" },
       { "label": "X", "icon": "x", "url": "https://x.com/siddharthskulk" },
       { "label": "LinkedIn", "icon": "linkedin", "url": "https://www.linkedin.com/in/siddharth-s-kulkarni/" },
       { "label": "Substack", "icon": "substack", "url": "https://substack.com/@siddharthkulkarni" },
@@ -30,6 +31,7 @@
   },
   "essays": {
     "title": "Writing",
+    "description": "Notes and essays that I've written to understand a particular topic.",
     "filterAll": "all",
     "noEssays": "No essays found."
   },

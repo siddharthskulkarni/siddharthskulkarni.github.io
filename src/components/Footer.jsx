@@ -3,6 +3,7 @@ import strings from '../strings.json';
 
 const SocialIcon = ({ iconName }) => {
   const iconMap = {
+    email: 'simple-icons:gmail',
     x: 'simple-icons:x',
     linkedin: 'simple-icons:linkedin',
     github: 'simple-icons:github',
@@ -11,7 +12,7 @@ const SocialIcon = ({ iconName }) => {
 
   const icon = iconMap[iconName] || 'simple-icons:link';
 
-  return <Icon icon={icon} width={12} height={12} className="transition-colors" aria-hidden="true" />;
+  return <Icon icon={icon} width={10} height={10} className="transition-colors" aria-hidden="true" />;
 };
 
 const Footer = () => {
@@ -22,18 +23,22 @@ const Footer = () => {
             <span className="font-[verdana]">{strings.footer.copyright}</span>
           </div>
           <div className="flex flex-wrap items-center gap-4">
-            {strings.footer.socials.map((social) => (
-              <a
-                key={social.label}
-                href={social.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="flex items-center justify-center text-gray-500 hover:text-gray-700 transition-colors"
-                aria-label={social.label}
-              >
-                <SocialIcon iconName={social.icon} />
-              </a>
-            ))}
+            {strings.footer.socials.map((social) => {
+              const isMailto = social.url.startsWith('mailto:');
+              return (
+                <a
+                  key={social.label}
+                  href={social.url}
+                  {...(isMailto
+                    ? {}
+                    : { target: '_blank', rel: 'noopener noreferrer' })}
+                  className="flex items-center justify-center w-5 h-5 rounded-full bg-gray-100 text-gray-500 hover:text-gray-700 transition-colors"
+                  aria-label={social.label}
+                >
+                  <SocialIcon iconName={social.icon} />
+                </a>
+              );
+            })}
           </div>
         </div>
       </footer>
