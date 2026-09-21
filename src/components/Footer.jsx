@@ -1,4 +1,5 @@
 import { Icon } from '@iconify/react';
+import { useLocation } from 'react-router-dom';
 import strings from '../strings.json';
 
 const SocialIcon = ({ iconName }) => {
@@ -17,12 +18,16 @@ const SocialIcon = ({ iconName }) => {
 };
 
 const Footer = () => {
-    return (
-        <footer className="my-16 bottom-0 pt-8 border-t border-gray-200 max-w-4xl mx-auto px-6">
-        <div className="flex items-center justify-between gap-4 text-sm text-gray-500">
-          <div>
-            <span className="font-[verdana]">{strings.footer.copyright}</span>
-          </div>
+  const { pathname } = useLocation();
+  const showSocials = pathname === '/bio';
+
+  return (
+    <footer className="my-16 bottom-0 pt-8 border-t border-gray-200 max-w-4xl mx-auto px-6">
+      <div className="flex items-center justify-between gap-4 text-sm text-gray-500">
+        <div>
+          <span className="font-[verdana]">{strings.footer.copyright}</span>
+        </div>
+        {showSocials && (
           <div className="flex flex-wrap items-center gap-4">
             {strings.footer.socials.map((social) => {
               const isExternal = /^https?:\/\//i.test(social.url);
@@ -41,16 +46,10 @@ const Footer = () => {
               );
             })}
           </div>
-        </div>
-      </footer>
-    );
+        )}
+      </div>
+    </footer>
+  );
 };
 
 export default Footer;
-
-
-
-
-
-
-
