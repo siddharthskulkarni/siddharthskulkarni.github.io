@@ -64,13 +64,15 @@ jobs:
           set -euo pipefail
           shopt -s nullglob
           rm -rf publish
-          mkdir -p publish/essays
+          mkdir -p publish/content/essays
           cp -f CNAME publish/CNAME
-          cp -f public/essays/index.json publish/essays/index.json
-          md_files=(public/essays/*.md)
+          cp -f public/content/essays/index.json publish/content/essays/index.json
+          md_files=(public/content/essays/*.md)
           if (( ${#md_files[@]} )); then
-            cp -f "${md_files[@]}" publish/essays/
+            cp -f "${md_files[@]}" publish/content/essays/
           fi
+          cp -f public/atom.xml publish/atom.xml
+          cp -f public/rss.xml publish/rss.xml
 
       - name: Build project
         if: steps.changes.outputs.essay_only != 'true'

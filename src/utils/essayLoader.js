@@ -1,4 +1,4 @@
-const ESSAYS_INDEX_URL = '/essays/index.json';
+const ESSAYS_INDEX_URL = '/content/essays/index.json';
 
 let essaysIndexPromise = null;
 
@@ -35,7 +35,7 @@ export const loadEssayById = async (id, type = null) => {
   if (!essayMeta) return null;
 
   const cacheKey = essayMeta.hash ? `?v=${encodeURIComponent(essayMeta.hash)}` : '';
-  const res = await fetch(`/essays/${encodeURIComponent(id)}.md${cacheKey}`, {
+  const res = await fetch(`/content/essays/${encodeURIComponent(id)}.md${cacheKey}`, {
     cache: 'no-cache',
   });
   if (!res.ok) return null;

@@ -7,7 +7,7 @@ import { renderEssayHtml, SITE_ORIGIN } from './render-essay-html.mjs';
 
 const repoRoot = process.cwd();
 const srcDir = path.join(repoRoot, 'src', 'essays');
-const outDir = path.join(repoRoot, 'public', 'essays');
+const outDir = path.join(repoRoot, 'public', 'content', 'essays');
 const publicDir = path.join(repoRoot, 'public');
 
 const sha1 = (text) =>
