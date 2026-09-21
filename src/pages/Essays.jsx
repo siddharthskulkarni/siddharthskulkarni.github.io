@@ -71,11 +71,6 @@ const Essays = () => {
             {strings.essays.title}
           </h2>
         </div>
-      {/* {strings.essays.description ? (
-        <p className="mb-8 text-gray-700 leading-relaxed">
-          {strings.essays.description}
-        </p>
-      ) : null} */}
       {/* Filters */}
       <div className="mb-12 space-y-6">
         {/* Type Filter */}
