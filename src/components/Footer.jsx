@@ -4,7 +4,7 @@ import strings from '../strings.json';
 const SocialIcon = ({ iconName }) => {
   const iconMap = {
     email: 'simple-icons:gmail',
-    rss: 'simple-icons:rss',
+    // rss: 'simple-icons:rss',
     x: 'simple-icons:x',
     linkedin: 'simple-icons:linkedin',
     github: 'simple-icons:github',
