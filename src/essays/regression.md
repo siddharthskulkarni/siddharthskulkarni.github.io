@@ -3,7 +3,7 @@ title: "Mathematics of Linear Regression"
 excerpt: ""
 date: "2025-07-10"
 type: "math"
-tags: ["math", "stat"]
+tags: ["math", "stat", "archive"]
 ---
 
 We make sense of the world by making connections. Given $x$ and $y$, we always try to solve for $f$ such that $y=f(x)$.

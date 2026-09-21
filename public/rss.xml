@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+    <channel>
+        <title>Siddharth Kulkarni</title>
+        <link>https://siddharthsk.com/</link>
+        <description>Siddharth Kulkarni's essays.</description>
+        <lastBuildDate>Mon, 21 Sep 2026 22:22:21 GMT</lastBuildDate>
+        <docs>https://validator.w3.org/feed/docs/rss2.html</docs>
+        <generator>https://github.com/jpmonette/feed</generator>
+        <language>en</language>
+        <copyright>© 2026 Siddharth Kulkarni</copyright>
+        <atom:link href="https://siddharthsk.com/rss.xml" rel="self" type="application/rss+xml"/>
+    </channel>
+</rss>

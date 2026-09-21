@@ -3,7 +3,7 @@ title: "Time Series Analysis"
 excerpt: ""
 date: "2026-03-15"
 type: "math"
-tags: ["math", "stat"]
+tags: ["math", "stat", "archive"]
 ---
 
 Usually, it makes sense to consider the data as a random sample; i.e. independent and identically distributed. Then one can model the distribution and do testing, confidence intervals, or regressions.

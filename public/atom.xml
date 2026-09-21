@@ -1,0 +1,17 @@
+<?xml version="1.0" encoding="utf-8"?>
+<feed xmlns="http://www.w3.org/2005/Atom">
+    <id>https://siddharthsk.com</id>
+    <title>Siddharth Kulkarni</title>
+    <updated>2026-09-21T22:22:21.623Z</updated>
+    <generator>https://github.com/jpmonette/feed</generator>
+    <author>
+        <name>Siddharth Kulkarni</name>
+        <email>sidkmisc@gmail.com</email>
+        <uri>https://siddharthsk.com/</uri>
+    </author>
+    <link rel="alternate" href="https://siddharthsk.com/"/>
+    <link rel="self" href="https://siddharthsk.com/atom.xml"/>
+    <subtitle>Siddharth Kulkarni's essays.</subtitle>
+    <icon>https://siddharthsk.com/vite.svg</icon>
+    <rights>© 2026 Siddharth Kulkarni</rights>
+</feed>

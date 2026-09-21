@@ -2,7 +2,7 @@
 title: "On Risk-Neutral Pricing"
 excerpt: ""
 date: "2026-09-01"
-tags: ["math", "finance"]
+tags: ["math", "finance", "archive"]
 ---
 
 To keep things simple, let's talk about a call option $C$ on a stock $S$ expiring at $T$. The main ideas behind pricing such derivatives are _replication_ and _no-arbitrage_. If you put together a portfolio $\Pi$:

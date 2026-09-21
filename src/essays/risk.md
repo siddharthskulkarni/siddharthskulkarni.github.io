@@ -3,7 +3,7 @@ title: "Basics of Market Risk"
 excerpt: "Measuring and backtesting VaR using parametric and historical methods."
 date: "2026-02-01"
 type: "math"
-tags: ["finance", "risk"]
+tags: ["finance", "archive"]
 ---
 
 Almost everyone has heard a version of "All investments are subject to
