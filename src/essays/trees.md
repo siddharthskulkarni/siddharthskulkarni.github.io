@@ -4,7 +4,7 @@ excerpt: ""
 date: "2026-01-25"
 type: "math"
 outline: true
-tags: ["math", "ml", "archive"]
+tags: ["math", "ml"]
 ---
 
 <span class="invisible absolute" id="basic-idea"></span>
