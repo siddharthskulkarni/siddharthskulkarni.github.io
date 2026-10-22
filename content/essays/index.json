@@ -35,7 +35,8 @@
     "type": "math",
     "tags": [
       "math",
-      "stat"
+      "stat",
+      "archive"
     ],
     "outline": false,
     "hash": "eabc389cd195ea830ff610c8a126eb341ade2719"
@@ -74,7 +75,8 @@
     "type": "math",
     "tags": [
       "math",
-      "ml"
+      "ml",
+      "archive"
     ],
     "outline": true,
     "hash": "41b1f77f1ef75efe767e486e952b43672e071c4a"
@@ -100,7 +102,8 @@
     "date": "2025-07-09",
     "type": "math",
     "tags": [
-      "finance"
+      "finance",
+      "archive"
     ],
     "outline": false,
     "hash": "8d3ca873998a0fa3ebd6a554be0a61af8a272cfc"
