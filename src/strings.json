@@ -7,7 +7,8 @@
     "brand": "SK",
     "home": "Home",
     "writing": "Writing",
-    "bio": "Bio",
+    "quotes": "Quotes",
+    "about": "About",
     "toggleMenu": "Toggle menu"
   },
   "footer": {
@@ -21,13 +22,42 @@
     ]
   },
   "about": {
-    "title": "Bio",
+    "title": "About",
     "photoAlt": "Siddharth Kulkarni",
-    "intro": "Hi, I’m Siddharth Kulkarni. I have an MS in Applied Mathematics from UMass Amherst and a B.Tech in Computer Engineering from NIT Surat.",
-    "summary": "I write about mathematics, finance, philosophy, and other life stuff."
+    "intro": "My name is Siddharth Kulkarni. I have an MS in Applied Mathematics from UMass Amherst and a B.Tech in Computer Engineering from NIT Surat.",
+    "summary": ""
   },
   "home": {
     "heading": "New:"
+  },
+  "quotes": {
+    "title": "Quotes",
+    "items": [
+      {
+        "text": "How we spend our days is, of course, how we spend our lives.",
+        "author": "Annie Dillard"
+      },
+      {
+        "text": "Tis not in mortals to command success; but we'll do more, Sempronius, we'll deserve it.",
+        "author": "Addison"
+      },
+      {
+        "text": "I never understand anything until I have written about it.",
+        "author": "Horace Walpole"
+      },
+      {
+        "text": "If you're thinking without writing, you only think you're thinking.",
+        "author": "Leslie Lamport"
+      },
+      {
+        "text": "The handicap under which most beginning writers struggle is that they don't know how to write.",
+        "author": "Wodehouse"
+      },
+      {
+        "text": "The best writing is rewriting.",
+        "author": "E. B. White"
+      }
+    ]
   },
   "essays": {
     "title": "Writing",

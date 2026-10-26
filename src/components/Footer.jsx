@@ -19,7 +19,7 @@ const SocialIcon = ({ iconName }) => {
 
 const Footer = () => {
   const { pathname } = useLocation();
-  const showSocials = pathname === '/bio';
+  const showSocials = pathname === '/about' || pathname === '/bio';
 
   return (
     <footer className="my-16 bottom-0 pt-8 border-t border-gray-200 max-w-4xl mx-auto px-6">
