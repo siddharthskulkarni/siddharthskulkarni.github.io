@@ -10,11 +10,18 @@ const Bio = () => {
     <div className="max-w-xl mt-8 font-[verdana]">
      <div className="max-w-xl mx-auto font-[verdana]">
       <div>
-        <img
-          src="my_photo.jpg"
-          alt={strings.about.photoAlt}
-          className="w-20 h-20 float-left mr-4 mb-1"
-        />
+        <a
+          href="my_photo.jpg"
+          target="_blank"
+          rel="noopener noreferrer"
+          className="float-left mr-4 mb-1"
+        >
+          <img
+            src="my_photo.jpg"
+            alt={strings.about.photoAlt}
+            className="w-20 h-20"
+          />
+        </a>
         <h2 className="my-3 text-xl font-normal font-[verdana] text-blue-900">
           {strings.about.title}
         </h2>
