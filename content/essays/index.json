@@ -1,0 +1,149 @@
+[
+  {
+    "id": "convergence",
+    "title": "On Convergence",
+    "excerpt": "",
+    "date": "2026-11-04",
+    "type": "math",
+    "tags": [
+      "math"
+    ],
+    "outline": false,
+    "hash": "7c338ed2840d2bf55f9f5e4eed04f66c80840eb3"
+  },
+  {
+    "id": "philosophy-of-probability",
+    "title": "Philosophy of Probability",
+    "excerpt": "",
+    "date": "2026-11-04",
+    "type": "math",
+    "tags": [
+      "math",
+      "phil"
+    ],
+    "outline": false,
+    "hash": "841d1a4377f7675f78b9dc99eadef9128fb51434"
+  },
+  {
+    "id": "probability",
+    "title": "Probability",
+    "excerpt": "",
+    "date": "2026-11-04",
+    "type": "math",
+    "tags": [
+      "math",
+      "stat"
+    ],
+    "outline": false,
+    "hash": "7c338ed2840d2bf55f9f5e4eed04f66c80840eb3"
+  },
+  {
+    "id": "risk-neutral-pricing",
+    "title": "On Risk-Neutral Pricing",
+    "excerpt": "",
+    "date": "2026-09-01",
+    "type": "draft",
+    "tags": [
+      "math",
+      "finance",
+      "archive"
+    ],
+    "outline": false,
+    "hash": "f5c535725980a3e2001230956f84427f30c93885"
+  },
+  {
+    "id": "german-tank",
+    "title": "The German Tank Problem",
+    "excerpt": "",
+    "date": "2026-07-21",
+    "type": "math",
+    "tags": [
+      "math",
+      "stat",
+      "archive"
+    ],
+    "outline": false,
+    "hash": "28deffd87a8f680a52fd5eb60f48a34a421dabc5"
+  },
+  {
+    "id": "time-series",
+    "title": "Time Series Analysis",
+    "excerpt": "",
+    "date": "2026-03-15",
+    "type": "math",
+    "tags": [
+      "math",
+      "stat",
+      "archive"
+    ],
+    "outline": false,
+    "hash": "33b32265e31ce019a4fb12fbb862349e3449b32c"
+  },
+  {
+    "id": "ai-apps",
+    "title": "Notes on building AI apps",
+    "excerpt": "",
+    "date": "2026-02-16",
+    "type": "misc",
+    "tags": [
+      "ml",
+      "archive"
+    ],
+    "outline": false,
+    "hash": "c09f23c0e2346b381702a75be2e2049fdadce853"
+  },
+  {
+    "id": "risk",
+    "title": "Basics of Market Risk",
+    "excerpt": "Measuring and backtesting VaR using parametric and historical methods.",
+    "date": "2026-02-01",
+    "type": "math",
+    "tags": [
+      "finance",
+      "archive"
+    ],
+    "outline": false,
+    "hash": "83721b9110d388bddca07641557a5008362991dc"
+  },
+  {
+    "id": "trees",
+    "title": "Introduction to Tree-based methods",
+    "excerpt": "",
+    "date": "2026-01-25",
+    "type": "math",
+    "tags": [
+      "math",
+      "ml",
+      "archive"
+    ],
+    "outline": true,
+    "hash": "5866494698560ebbef3764eeb612a5195dc54663"
+  },
+  {
+    "id": "regression",
+    "title": "Mathematics of Linear Regression",
+    "excerpt": "",
+    "date": "2025-07-10",
+    "type": "math",
+    "tags": [
+      "math",
+      "stat",
+      "archive"
+    ],
+    "outline": false,
+    "hash": "536868efa648d0a553bb202385a5cb335b74fb5f"
+  },
+  {
+    "id": "bond-yields",
+    "title": "Computing Bond Yields",
+    "excerpt": "using numerical methods like Bisection and Newton's Method.",
+    "date": "2025-07-09",
+    "type": "math",
+    "tags": [
+      "finance",
+      "archive"
+    ],
+    "outline": false,
+    "hash": "8d3ca873998a0fa3ebd6a554be0a61af8a272cfc"
+  }
+]
