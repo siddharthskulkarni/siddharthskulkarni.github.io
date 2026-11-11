@@ -6,18 +6,14 @@ const Quotes = () => {
   return (
     <div className="max-w-2xl mt-12 font-[verdana]">
       <h2 className="mb-10 text-xl font-normal text-blue-900">{strings.quotes.title}</h2>
-      <div className="space-y-10">
+      <ul className="list-disc list-outside space-y-8 pl-5 text-gray-800">
         {quotes.map((quote, index) => (
-          <figure key={`${quote.author}-${index}`} className="text-gray-800">
-            <blockquote>
-              “{quote.text}”
-            </blockquote>
-            <figcaption className="mt-4">
-              — {quote.author}
-            </figcaption>
-          </figure>
+          <li key={`${quote.author}-${index}`}>
+            <blockquote>“{quote.text}”</blockquote>
+            <p className="mt-2">— {quote.author}</p>
+          </li>
         ))}
-      </div>
+      </ul>
     </div>
   );
 };

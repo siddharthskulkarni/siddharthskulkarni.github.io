@@ -115,4 +115,4 @@ for all $s$, $t$. Since $\gamma$ depends on both $s$ and $t$ and not just their 
 &nbsp;
 
 ### References
-[1] Shumway, R. H., & Stoffer, D. S. (2017). _Time Series Analysis and Its Applications: With R Examples_ (4th ed.). Springer, Cham, Switzerland.
+1. Shumway, R. H., & Stoffer, D. S. (2017). _Time Series Analysis and Its Applications: With R Examples_ (4th ed.). Springer, Cham, Switzerland.

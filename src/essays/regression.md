@@ -164,20 +164,20 @@ Broadly, Regression has two types: Parametric (assumes a functional form) and No
 
 ### Notes
 <span class="invisible absolute" id="note-1"></span>
-[1] Actually, the problem is again to choose the "best" measure of distance (instead of "a" measure). This usually depends on the problem to be solved. $L^1$, $L^2$, [$L^p$](https://en.wikipedia.org/wiki/Lp_space#Preliminaries) or a combination of them are commonly used. For example, [Lasso](https://en.wikipedia.org/wiki/Lasso_(statistics)#Basic_form), or [Ridge](https://en.wikipedia.org/wiki/Ridge_regression#Tikhonov_regularization). 
+1. Actually, the problem is again to choose the "best" measure of distance (instead of "a" measure). This usually depends on the problem to be solved. $L^1$, $L^2$, [$L^p$](https://en.wikipedia.org/wiki/Lp_space#Preliminaries) or a combination of them are commonly used. For example, [Lasso](https://en.wikipedia.org/wiki/Lasso_(statistics)#Basic_form), or [Ridge](https://en.wikipedia.org/wiki/Ridge_regression#Tikhonov_regularization). 
 
 <span class="invisible absolute" id="note-2"></span>
-[2] $X^tX$ are special kinds of matrices called [symmetric positive definite (SPD)](https://en.wikipedia.org/wiki/Definite_matrix#Definitions). Inverting SPD matrices is more generally connected with optimization problems.
+2. $X^tX$ are special kinds of matrices called [symmetric positive definite (SPD)](https://en.wikipedia.org/wiki/Definite_matrix#Definitions). Inverting SPD matrices is more generally connected with optimization problems.
 
 <span class="invisible absolute" id="note-3"></span>
-[3] This is what's called OLS (Ordinary Least Squares). It's a mathematical method to find the approximation of a point in a subspace; it works so long as the explanatory variables $\mathbf{x}$ are linearly independent. Otherwise, there can be infinitely many best approximations.
+3. This is what's called OLS (Ordinary Least Squares). It's a mathematical method to find the approximation of a point in a subspace; it works so long as the explanatory variables $\mathbf{x}$ are linearly independent. Otherwise, there can be infinitely many best approximations.
 
 The additional assumptions in _OLS regression_ guarantee that the estimators $\hat{\beta}$ are the [_Best Linear Unbiased Estimators (BLUE)_](https://en.wikipedia.org/wiki/Gauss%E2%80%93Markov_theorem). By further assuming a conditional Normal model, we can make confidence intervals.
 
 &nbsp;
 
 ### References
-[1] Casella, G., & Berger, R. L. (2002). _Statistical Inference_ (2nd ed.). Duxbury Press, Pacific Grove, CA.
+1. Casella, G., & Berger, R. L. (2002). _Statistical Inference_ (2nd ed.). Duxbury Press, Pacific Grove, CA.
 
 
 

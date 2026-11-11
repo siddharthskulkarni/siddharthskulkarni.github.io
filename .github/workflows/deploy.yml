@@ -71,8 +71,6 @@ jobs:
           if (( ${#md_files[@]} )); then
             cp -f "${md_files[@]}" publish/content/essays/
           fi
-          cp -f public/atom.xml publish/atom.xml
-          cp -f public/rss.xml publish/rss.xml
 
       - name: Build project
         if: steps.changes.outputs.essay_only != 'true'

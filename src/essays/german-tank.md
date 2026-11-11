@@ -114,11 +114,11 @@ There can be other such heuristic estimators, for example you could add the aver
 <span class="invisible absolute" id="notes"></span>
 #### Notes
 <span class="invisible absolute" id="note-1"></span>
-[1] This estimator is, in fact, the MVUE (minimum variance unbiased estimator).
+1. This estimator is, in fact, the MVUE (minimum variance unbiased estimator).
 
 &nbsp;
 
 <span class="invisible absolute" id="references"></span>
 #### References
 <span class="invisible absolute" id="ref-1"></span>
-[1] Miller, Steven J. 2021. [“Lessons from the German Tank Problem.”](https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/GTPv10.pdf) Williams College.
+1. Miller, Steven J. 2021. [“Lessons from the German Tank Problem.”](https://web.williams.edu/Mathematics/sjmiller/public_html/math/papers/GTPv10.pdf) Williams College.

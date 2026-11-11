@@ -101,7 +101,7 @@ The more interesting question is why and how no-arbitrage, replication and compl
 <span class="invisible absolute" id="notes"></span>
 #### Notes
 <span class="invisible absolute" id="note-1"></span>
-[1] My understanding is essentially a combination of the top two answers on this [thread](https://quant.stackexchange.com/questions/55239/explaining-the-risk-neutral-measure).
+1. My understanding is essentially a combination of the top two answers on this [thread](https://quant.stackexchange.com/questions/55239/explaining-the-risk-neutral-measure).
 
 &nbsp;
 

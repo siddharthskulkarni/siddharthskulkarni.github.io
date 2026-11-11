@@ -65,7 +65,7 @@ the computed $\text{VaR}_{1-\alpha}$,
 where $F_X$ is the distribution function and
 $1 - \alpha$ is the chosen confidence level. [[2](#note-2)]
 
-#### (1) Model returns
+#### 1. Model returns
 
 ![GLD 5Y Returns](/images/risk-1-GLD-returns.png)
 
@@ -79,7 +79,7 @@ historical density, we use the Gaussian kernel.
 
 ![GLD 5Y Returns](/images/risk-2-prob-dists.png)
 
-#### (2) Estimate VaR
+#### 2. Estimate VaR
 For 99% confidence level,
 $1 - \alpha = 0.99$, so
 $\alpha = 0.01$. Under the parametric models, 
@@ -97,7 +97,7 @@ numerically compute the quantile.
 
 ![GLD 5Y Returns](/images/risk-3-vars.png)
 
-#### (3) Backtest VaR
+#### 3. Backtest VaR
 The VaR tells us that 
 $\mathbb{P}(X_i \leq -\text{VaR}_{1-\alpha}) = \alpha$.
 So we define a breach of the VaR level as
@@ -131,12 +131,12 @@ being representative of future returns, don't hold empirically.
 <span class="invisible absolute" id="notes"></span>
 ### Notes
 <span class="invisible absolute" id="note-1"></span>
-[1] The full Jupyter notebook that
+1. The full Jupyter notebook that
 reproduces the graphs and computations
 is [here](https://github.com/siddharthskulkarni/market-risk/blob/main/workflow.ipynb).
 
 <span class="invisible absolute" id="note-2"></span>
-[2] Log-returns help because they're additive,
+2. Log-returns help because they're additive,
 i.e., for multiple time 
 periods they can simply be added together
 to get log-returns over the combined period.
@@ -145,14 +145,14 @@ logs of very small numbers close to zero are large negative
 numbers.
 
 <span class="invisible absolute" id="note-3"></span>
-[3] This use of the likelihood ratio test
+3. This use of the likelihood ratio test
 is known as the Kupiec Proportion of Failures (PoF) test.
 
 &nbsp;
 
 <span class="invisible absolute" id="references"></span>
 ### References
-[1] Mathworks. [_Value-at-Risk Estimation and Backtesting_](https://www.mathworks.com/help/risk/value-at-risk-estimation-and-backtesting.html).
+1. Mathworks. [_Value-at-Risk Estimation and Backtesting_](https://www.mathworks.com/help/risk/value-at-risk-estimation-and-backtesting.html).
 
 <span class="invisible absolute" id="ref-2"></span>
-[2] [_Market Risk_](https://github.com/siddharthskulkarni/market-risk/blob/main/workflow.ipynb).
+2. [_Market Risk_](https://github.com/siddharthskulkarni/market-risk/blob/main/workflow.ipynb).

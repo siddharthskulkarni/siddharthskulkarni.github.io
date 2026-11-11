@@ -83,7 +83,7 @@ data and file systems that can be used by MCP hosts
 <span class="invisible absolute" id="notes"></span>
 ### Notes
 <span class="invisible absolute" id="note-1"></span>
-[1] Based on their
+1. Based on their
 most popular use case so far — coding — it seems
 they're like natural language compilers
 that turn instructions in natural language
@@ -100,10 +100,10 @@ questions like this:
 <img src="/images/ai-apps-1.png" alt="DeepSeek answers a logic question incorrectly" title="(I remember seeing this question in a reel but I can't find it to cite)">
 
 <span class="invisible absolute" id="note-2"></span>
-[2] Cf. [_Machines of Loving Grace_](https://darioamodei.com/essay/machines-of-loving-grace).
+2. Cf. [_Machines of Loving Grace_](https://darioamodei.com/essay/machines-of-loving-grace).
 
 <span class="invisible absolute" id="note-3"></span>
-[3] [LangChain](https://docs.langchain.com/oss/python/langchain/overview) is an open-source framework with classes and
+3. [LangChain](https://docs.langchain.com/oss/python/langchain/overview) is an open-source framework with classes and
 methods to initialize and query LLMs,
 and build simple agents. You can get the API keys
 from model providers and use them to
@@ -114,15 +114,15 @@ is [Ollama](https://ollama.com/) — an open-source
 platform to access and run open models locally.
 
 <span class="invisible absolute" id="note-4"></span>
-[4] [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview) is a low-level, graph-based, open-source framework
+4. [LangGraph](https://docs.langchain.com/oss/python/langgraph/overview) is a low-level, graph-based, open-source framework
 to build complex agent logic and multi-agent systems. It works using a _state_ object that's shared across the graph and used to handle the app flow.
 
 <span class="invisible absolute" id="note-5"></span>
-[5] Natural language inputs are embedded into high-dimensional vector spaces using embedding models, and then stored in vector
+5. Natural language inputs are embedded into high-dimensional vector spaces using embedding models, and then stored in vector
 databases like [Pinecone](https://docs.pinecone.io/guides/get-started/overview). Search queries are also embedded in the same
 space, results are returned based on vector similarity, and inserted in the context window. This is what's called [Retrieval-Augmented Generation (RAG)](https://en.wikipedia.org/wiki/Retrieval-augmented_generation#Process).
 
 <span class="invisible absolute" id="note-6"></span>
-[6] [Prompt Engineering Guide](https://www.promptingguide.ai/techniques) is a useful resource for different prompting techniques and their pros and cons.
+6. [Prompt Engineering Guide](https://www.promptingguide.ai/techniques) is a useful resource for different prompting techniques and their pros and cons.
 
 &nbsp;
