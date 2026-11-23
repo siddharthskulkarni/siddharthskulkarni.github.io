@@ -1,0 +1,6 @@
+<script>
+    const redirectPath = location.pathname + location.search + location.hash;
+    sessionStorage.setItem('redirectPath', redirectPath);
+
+    location.replace('/');
+</script>
