@@ -6,7 +6,7 @@
   "nav": {
     "brand": "SK",
     "home": "Home",
-    "writing": "Writing",
+    "writing": "Essays",
     "quotes": "Quotes",
     "about": "About",
     "toggleMenu": "Toggle menu"
@@ -24,7 +24,7 @@
   "about": {
     "title": "About",
     "photoAlt": "Siddharth Kulkarni",
-    "intro": "My name is Siddharth Kulkarni. I have an MS in Applied Mathematics from UMass Amherst and a B.Tech in Computer Engineering from NIT Surat.",
+    "intro": "My name is Siddharth Kulkarni. I'm interested in mathematics, finance, philosophy, and writing. I have a B.Tech in Computer Engineering from NIT Surat and an MS in Applied Mathematics from UMass Amherst.",
     "summary": ""
   },
   "home": {
@@ -60,8 +60,8 @@
     ]
   },
   "essays": {
-    "title": "Writing",
-    "description": "Notes and essays that I've written to understand a particular topic.",
+    "title": "Essays",
+    "description": "",
     "filterAll": "all",
     "noEssays": "No essays found."
   },
